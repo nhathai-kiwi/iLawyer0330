@@ -1,0 +1,51 @@
+主な事業：その他の土木工事の建設
+
+{
+    "status": 'Success', ['Failed']
+    "object": "page",
+    //"error": 'message error', [show if status is failed]
+
+    "entry": [
+        {
+            "id": "162802957817233",
+            "time": 1523363903982,
+            "messaging": [
+                {
+                    "sender": {
+                        "id": "162802957817233"
+                    },
+
+                    "recipient": {
+                        "id": "1604184539689730"
+                    },
+
+                    "timestamp": 1523363900410,
+
+                    "message": {
+
+                        "text": "Bạn có muốn tiếp tục đặt câu hỏi nữa không?".
+
+                        "step": "2.1"
+                        "key_button": [{"1":"1"}, {"2":"2", "3":"co", {"4":"Khong"}, {"5":"khong biet"}] // array
+
+
+
+                    }
+
+                }
+            ]
+        }
+    ]
+
+
+}
+
+   {
+        "message": "hello",
+        "step": "1",
+        "uid": "xysfsfsdfdsf",
+        "btnkey": "3",
+        "type": "text"
+    }
+
+

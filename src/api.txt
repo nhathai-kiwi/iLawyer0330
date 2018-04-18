@@ -1,0 +1,267 @@
+API: https://40dd502a.ngrok.io/api
+Header: tokenkey: kiwi_token
+
+Bat dau hoi thoai:
+01: Send - Receive
+{
+    "all_message": "",
+    "answer": "",
+	"lang" : "",
+	"message" : "",
+	"quick_reply" : [],
+	"type" : "0",
+	"uid": "12345"
+}
+
+{
+    "all_message": "",
+    "answer": "",
+    "lang": "",
+    "message": "Which language would you like to use?\n",
+    "quick_reply": [
+        {
+            "payload": "vi",
+            "title": "vietnamese"
+        },
+        {
+            "payload": "ja",
+            "title": "japanese"
+        }
+    ],
+    "type": "0",
+    "uid": "12345"
+}
+
+02:
+Lua chon cua nguoi dung : vi, ja
+
+{
+    "all_message": "",
+    "answer": "",
+	"lang" : "",
+	"message" : "",
+	"quick_reply" : "vi",
+	"type" : "0",
+	"uid": "12345"
+}
+
+{
+    "all_message": "",
+    "answer": "",
+    "lang": "vi",
+    "message": "Bạn muốn hỏi về?\n1. Công ty trách nhiệm hữu hạn một thành viên\n2. Công ty trách nhiệm hữu hạn hai thành viên trở lên\n3. Doanh nghiệp nhà nước\n4. Công ty cổ phần\n5. Kết nối luật sư",
+    "quick_reply": [
+        {
+            "payload": "1",
+            "title": "1"
+        },
+        {
+            "payload": "2",
+            "title": "2"
+        },
+        {
+            "payload": "3",
+            "title": "3"
+        },
+        {
+            "payload": "4",
+            "title": "4"
+        },
+        {
+            "payload": "5",
+            "title": "5"
+        }
+    ],
+    "type": "0",
+    "uid": "12345"
+}
+
+
+03:
+Lua chon cua nguoi dung 1, 2, 3, 4, 5
+Lua chon 1:
+
+{
+    "all_message": "",
+    "answer": "",
+	"lang" : "vi",
+	"message" : "",
+	"quick_reply" : "1",
+	"type" : "0",
+	"uid": "12345"
+}
+
+{
+    "all_message": " trách nhiệm hữu hạn một thành viên",
+    "answer": "",
+    "lang": "vi",
+    "message": "Bạn muốn hỏi về?\n1. Vốn\n2. Chủ sở hữu công ty\n3. Khác",
+    "quick_reply": [
+        {
+            "payload": "1_1",
+            "title": "1"
+        },
+        {
+            "payload": "1_2",
+            "title": "2"
+        },
+        {
+            "payload": "1_3",
+            "title": "3"
+        }
+    ],
+    "type": "0",
+    "uid": "12345"
+}
+
+Lua chon 5:
+
+{
+    "all_message": "",
+    "answer": "",
+	"lang" : "vi",
+	"message" : "",
+	"quick_reply" : "5",
+	"type" : "0",
+	"uid": "12345"
+}
+
+{
+    "all_message": "",
+    "answer": "",
+    "lang": "vi",
+    "message": "Trên đây là nội dung tư vấn của iLawyer. Nếu còn vướng mắc chưa rõ cần luật sư giải đáp, bạn vui lòng gọi đến ...",
+    "quick_reply": [],
+    "type": "0",
+    "uid": "12345"
+}
+
+
+
+04:
+
+lua chon cua nguoi dung 1_1, 1_2, 1_3
+
+{
+    "all_message": "trách nhiệm hữu hạn một thành viên",
+	"answer": "",
+	"lang" : "vi",
+	"message" : "",
+	"quick_reply" : "1_1",
+	"type" : "0",
+	"uid": "12345"
+}
+
+{
+    "all_message": "trách nhiệm hữu hạn một thành viên Vốn",
+    "answer": "",
+    "lang": "vi",
+    "message": "Xin mời bạn đưa ra nội dung câu hỏi",
+    "quick_reply": [],
+    "type": "1",
+    "uid": "12345"
+}
+# type = 1 dua ra noi dung cau hoi
+
+05:
+Nguoi dung nhap text: "Thành lập doanh nghiệp tư nhân" la noi dung cau hoi
+{
+    "all_message": "trách nhiệm hữu hạn một thành viên Vốn",
+    "answer": "",
+    "lang": "vi",
+    "message": "Thành lập doanh nghiệp tư nhân",
+    "quick_reply": [],
+    "type": "1",
+    "uid": "12345"
+}
+
+
+{
+    "all_message": "",
+    "answer": "Điều 18 Quyền thành lập, góp vốn, mua cổ phần, mua phần vốn góp và quản lý doanh nghiệp\n1. Tổ chức, cá nhân có quyền thành lập và quản lý doanh nghiệp tại Việt Nam theo quy định của Luật này, trừ trường hợp quy định tại khoản 2 Điều này.\n2. Tổ chức, cá nhân sau đây không có quyền thành lập và quản lý doanh nghiệp tại Việt Nam:\na) Cơ quan nhà nước, đơn vị vũ trang nhân dân sử dụng tài sản nhà nước để thành lập doanh nghiệp kinh doanh thu lợi riêng cho cơ quan, đơn vị mình;\nb) Cán bộ, công chức, viên chức theo quy định của pháp luật về cán bộ, công chức, viên chức;\nc) Sĩ quan, hạ sĩ quan, quân nhân chuyên nghiệp, công nhân, viên chức quốc phòng trong các cơ quan, đơn vị thuộc Quân đội nhân dân; sĩ quan, hạ sĩ quan chuyên nghiệp trong các cơ quan, đơn vị thuộc Công an nhân dân Việt Nam, trừ những người được cử làm đại diện theo ủy quyền để quản lý phần vốn góp của Nhà nước tại doanh nghiệp;\nd) Cán bộ lãnh đạo, quản lý nghiệp vụ trong doanh nghiệp nhà nước, trừ những người được cử làm đại diện theo ủy quyền để quản lý phần vốn góp của Nhà nước tại doanh nghiệp khác;\nđ) Người chưa thành niên; người bị hạn chế năng lực hành vi dân sự hoặc bị mất năng lực hành vi dân sự; tổ chức không có tư cách pháp nhân;\ne) Người đang bị truy cứu trách nhiệm hình sự, chấp hành hình phạt tù, quyết định xử lý hành chính tại cơ sở cai nghiện bắt buộc, cơ sở giáo dục bắt buộc hoặc đang bị cấm hành nghề kinh doanh, đảm nhiệm chức vụ hoặc làm công việc nhất định, liên quan đến kinh doanh theo quyết định của Tòa án; các trường hợp khác theo quy định của pháp luật về phá sản, phòng, chống tham nhũng.\nTrường hợp Cơ quan đăng ký kinh doanh có yêu cầu, người đăng ký thành lập doanh nghiệp phải nộp Phiếu lý lịch tư pháp cho Cơ quan đăng ký kinh doanh.\n3. Tổ chức, cá nhân có quyền góp vốn, mua cổ phần, mua phần vốn góp vào công ty cổ phần, công ty trách nhiệm hữu hạn, công ty hợp danh theo quy định của Luật này, trừ trường hợp sau đây:\na) Cơ quan nhà nước, đơn vị vũ trang nhân dân sử dụng tài sản nhà",
+    "lang": "vi",
+    "message": "Bạn có muốn tiếp tục đặt câu hỏi nữa không?",
+    "quick_reply": [
+        {
+            "payload": "yes",
+            "title": "Có"
+        },
+        {
+            "payload": "no",
+            "title": "Không"
+        }
+    ],
+    "type": "0",
+    "uid": "12345"
+}
+
+
+06:
+# nguoi dung chon "no" ko hoi them
+
+{
+    "all_message": "",
+	"answer": "",
+	"lang" : "vi",
+	"message" : "",
+	"quick_reply" : "no",
+	"type" : "0",
+	"uid": "12345"
+}
+
+
+{
+    "all_message": "",
+    "answer": "",
+    "lang": "vi",
+    "message": "Trên đây là nội dung tư vấn của iLawyer. Nếu còn vướng mắc chưa rõ cần luật sư giải đáp, bạn vui lòng gọi đến ...",
+    "quick_reply": [],
+    "type": "0",
+    "uid": "12345"
+}
+
+07:
+# nguoi dung chon yes
+
+{
+    "all_message": "",
+	"answer": "",
+	"lang" : "vi",
+	"message" : "",
+	"quick_reply" : "yes",
+	"type" : "0",
+	"uid": "12345"
+}
+
+{
+    "all_message": "",
+    "answer": "",
+    "lang": "vi",
+    "message": "Bạn muốn hỏi về?\n1. Công ty trách nhiệm hữu hạn một thành viên\n2. Công ty trách nhiệm hữu hạn hai thành viên trở lên\n3. Doanh nghiệp nhà nước\n4. Công ty cổ phần\n5. Kết nối luật sư",
+    "quick_reply": [
+        {
+            "payload": "1",
+            "title": "1"
+        },
+        {
+            "payload": "2",
+            "title": "2"
+        },
+        {
+            "payload": "3",
+            "title": "3"
+        },
+        {
+            "payload": "4",
+            "title": "4"
+        },
+        {
+            "payload": "5",
+            "title": "5"
+        }
+    ],
+    "type": "0",
+    "uid": "12345"
+}
+
+08:

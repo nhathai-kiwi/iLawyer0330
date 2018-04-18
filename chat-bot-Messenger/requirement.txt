@@ -1,0 +1,10 @@
+sudo lsof -i:5000
+kill
+ngrok http 5000
+install fbmp/ git clone 'https://github.com/conbus/fbmq.git'
+https://github.com/conbus/fbmq/tree/master/example
+
+
+
+
+
