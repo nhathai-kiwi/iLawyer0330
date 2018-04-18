@@ -11,14 +11,20 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
 path = os.path.dirname(os.path.abspath(__file__))
+
+# bien backslash de thay doi duong dan link tren Mac/ Window
+# duong dan tren Mac: /; tren Window: \
+backslash = '\\'
+if '/'  in path:
+    backslash = '/'
+
+# duong dan link
+path_law_in_enterprise = path.replace('src','data' + backslash + 'lawInEnterprise')
+path_law_on_land = path.replace('src','data' + backslash + 'lawOnLand')
+
+
 path_run_NLP = path.replace('/src', '/NLP')
 sys.path.insert(0, path_run_NLP)
-
-
-# file dictionary for check question has at least 2 key words
-dict001_txt = 'dict001.txt'
-dict002_txt = 'dict002.txt'
-
 
 
 # delete file has a name inp_fileName
@@ -182,15 +188,16 @@ def gen_words_from_vncore_out_txt_02(vn_core_out_txt):
 
 
 # generate feature vector (numeric array)
-def gen_feature_vector(string_array):
+def gen_feature_vector(string_array, normal_dict_txt):
     feature_vector = []
 
-    dict = gen_array_from_txt(dict002_txt)
+    dict = gen_array_from_txt(normal_dict_txt)
 
     dict_string_array = {} # remove all the string duplicate in string_array by dictinary - STL python
     for element in string_array:
         value = dict_string_array.get(element, 0)
         dict_string_array[element] = value + 1
+
     for word in dict:
         if word in dict_string_array:
             feature_vector.append(1)
@@ -228,9 +235,9 @@ def gen_string_array_from_txt(inp_txt):
 
 
 # check question have at least 2 keywords (keyword from file dict001.txt contains 241 words)
-def check_question_at_least_2_keywords(string_array):
+def check_question_at_least_2_keywords(string_array, law_dict_txt):
 
-    keywords = gen_array_from_txt(dict001_txt)
+    keywords = gen_array_from_txt(law_dict_txt)
 
     # counting number of string_array list in keywords
     cnt = 0
@@ -243,7 +250,7 @@ def check_question_at_least_2_keywords(string_array):
 
 # generate feature table (numeric 2D array) from a training set stored in xlsx
 # TODO rename function
-def gen_feature_table_from_xlsx(inp_xlsx, num_rows, id_column_question):
+def gen_feature_table_from_xlsx(inp_xlsx, num_rows, id_column_question, normal_dict_txt):
     separator = 'separator'
     feature_table = []
     all_questions = gen_column_from_xlsx(inp_xlsx, num_rows, id_column_question)
@@ -265,14 +272,14 @@ def gen_feature_table_from_xlsx(inp_xlsx, num_rows, id_column_question):
         if each_string == separator:
             if len(question) == 0:
                 continue
-            feature_vector = gen_feature_vector(question)
+            feature_vector = gen_feature_vector(question, normal_dict_txt)
             feature_table.append(feature_vector)
             question = []
         else:
             question.append(each_string)
 
     # add a last feature_vector question
-    feature_vector = gen_feature_vector(question)
+    feature_vector = gen_feature_vector(question, normal_dict_txt)
     feature_table.append(feature_vector)
 
     process_delete_file('vncore_inp.txt')

@@ -1,10 +1,6 @@
+First
+vốn
 thành_lập
-công_ty
-hữu_hạn
-trách_nhiệm
-một
-thành_viên
-trách_nhiệm
-hữu_hạn
-một
-thành_viên
+ít_nhất
+là
+bao_nhiêu

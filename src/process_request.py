@@ -45,6 +45,24 @@ def process_post_request(payload):
     ret_value['lang'] = lang
     ret_value['type'] = type
     ret_value['answer'] = answer
+    # nguoi dung chon tieng Viet
+    if quick_reply == 'vi':
+        ret_value['lang'] = 'vi'
+        lang = 'vi'
+        ret_value['message'] = cw.node_root['text']['vi']
+        ret_value['all_message'] = ''
+        ret_value['quick_reply'] = cw.node_root['quick_reply']
+        ret_value['type'] = '0'
+
+    # nguoi dung chon tieng Nhat
+    if quick_reply == 'ja':
+        ret_value['lang'] = 'ja'
+        lang = 'ja'
+        ret_value['message'] = cw.node_root['text']['ja']  # cw.node_root['text']['ja']
+        ret_value['all_message'] = ''
+        ret_value['quick_reply'] = cw.node_root['quick_reply']
+        ret_value['type'] = '0'
+
 
     # choose language // Vietnamese or Japanese
     if lang == '':
@@ -54,23 +72,6 @@ def process_post_request(payload):
         ret_value['quick_reply'] = cw.node_choose_language['quick_reply']
         ret_value['type'] = '0'
     else:
-        # nguoi dung chon tieng Viet
-        if quick_reply == 'vi':
-            ret_value['lang'] = 'vi'
-            lang = 'vi'
-            ret_value['message'] = cw.node_root['text']['vi']
-            ret_value['all_message'] = ''
-            ret_value['quick_reply'] = cw.node_root['quick_reply']
-            ret_value['type'] = '0'
-
-        # nguoi dung chon tieng Nhat
-        if quick_reply == 'ja':
-            ret_value['lang'] = 'ja'
-            lang = 'ja'
-            ret_value['message'] = cw.node_root['text']['ja'] # cw.node_root['text']['ja']
-            ret_value['all_message'] = ''
-            ret_value['quick_reply'] = cw.node_root['quick_reply']
-            ret_value['type'] = '0'
 
         if quick_reply == '1':
             # 1. Công ty trách nhiệm hữu hạn một thành viên
