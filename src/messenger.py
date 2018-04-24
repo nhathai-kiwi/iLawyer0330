@@ -10,6 +10,8 @@ from fbmq import Attachment, Template, QuickReply, NotificationType
 from facebook_page import page
 import nn_messenger as nnm
 import messenger_version as mv
+import handle_event_messenger as hem
+
 USER_SEQ = {}
 
 
@@ -46,7 +48,8 @@ def received_message(event):
     # handle_messsage_v03: su dung decesion tree + classification
     # he thong can cho phep chuyen doi giua 3 phuong thuc
 
-    mv.handle_message_v07(event)
+    # mv.handle_message_v07(event)
+    hem.handle_message(event)
     # print "Dictionary size: ", len(dict_message)
     # for key, value in dict_message.iteritems():
     #     print (key, value)

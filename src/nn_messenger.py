@@ -39,10 +39,22 @@ def check_text_has_at_least_2_keywords(text):
     if ib.check_question_at_least_2_keywords(array_string_question, law_dict_enterprise_txt):
         return True
     return False
+# DONE
+
+
+# lay dieu luat num_artilce trong file inp_xlsx
+def get_artilce(law_xlsx, num_article):
+    answer = ib.get_article_from_prediction(law_xlsx, num_article, id_column_content)
+    if len(answer) > 2000:
+        answer = answer[0:2000]
+    return answer
+# DONE
+
+
 
 # text: cau hoi tu nguoi dung, cau tra loi cho luat doanh nghiep
-def get_answer(text):
-    model = 'iLawyer_enterprise.pkl'
+def get_answer_from_text(text, model, law_xlsx):
+    # model = 'iLawyer_enterprise.pkl'
     clf = joblib.load(model)
 
     ib.print_txt_from_string_element(text, input_txt)
@@ -53,7 +65,7 @@ def get_answer(text):
     y_question = isk.gen_prediction(clf, X_question)
     print type(y_question), y_question
     # ib.print_txt_from_prediction(lawInEnterprise_xlsx, y_question[0], id_column_content, output_txt)
-    answer = ib.get_article_from_prediction(lawInEnterprise_xlsx, y_question[0], id_column_content)
+    answer = ib.get_article_from_prediction(law_xlsx, y_question[0], id_column_content)
 
     # print "Len answer: ", len(answer)
     # Gioi han noi dung tin nhan tra loi <= 2000 ki tu (giao dien messenger cho phep nguoi dung gui tin nhan toi da 2000 ki tu)

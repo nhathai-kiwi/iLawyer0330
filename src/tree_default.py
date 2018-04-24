@@ -1,3 +1,4 @@
+# coding: utf-8
 
 Tree =  {
     # lua chon ngon ngu, payload danh so tu 01 --> 99

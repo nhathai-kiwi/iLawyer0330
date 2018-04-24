@@ -3,7 +3,7 @@ from fbmq import QuickReply
 from fbmq import Attachment, Template, QuickReply, Page
 
 CONFIG = {
-    'FACEBOOK_TOKEN': 'EAAGHCApnutgBAF9XYSeL7ZCy4At0uZAv9GNFKxhNr8ZC4xcRCrnxbLdlVa9d1o9yZC1bDo18Xzx8Omc2qUUKnECDsjx67A3G2mNeO7rX5NzA4LXXYCCVqp32EyBtbcDmjLpq06ZAMtljZBA2jM0iO7zN8WpHj6No9UzBd5H6bzfn2Q97oyrfq6',
+    'FACEBOOK_TOKEN': 'EAAGHCApnutgBAHWLswT4DdlOAKyxJI3amraqvGlbJrcJjYPZAXhZCPjxsNI9lFXSAKUsLZBGJWcGdao29RQN2Yc1p5QQHXvbNkNG4kSTZC7yIJAoqh511V6PZCiaiwr0w78LCIspKw91ByGTm1SZCf23vpafKCWZBTPrTPmJHnTPAAv7p9c40jU',
     'VERIFY_TOKEN': 'kiwi_token',
     'SERVER_URL': '2738a848.ngrok.io',
     'Tokenkey': 'kiwi_token'

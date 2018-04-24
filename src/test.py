@@ -1,3 +1,22 @@
+# coding: utf-8
+import os
+import sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
+import json
+import tree_default as td
+import tree_101
+import tree_102
+from flask_jsonpify import jsonify
+from facebook_page import page
+
+file_name = tree_101
+
+print tree_101.Node
+
+
+
+
 # node_root = {
 #     'key_words': [
 #         {'title': '1', 'word': ['cong ty', 'co phan'] },

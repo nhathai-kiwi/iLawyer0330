@@ -1,3 +1,5 @@
+# coding: utf-8
+
 Node = {
 
     # Node i ung voi item thu 200 + i
@@ -11,7 +13,7 @@ Node = {
                   '5. Người đại diện theo pháp luật\n'
                   '6. Thành lập doanh nghiệp\n'
                   '7. Tổ chức lại, giải thể và phá sản',
-            '02': 'あなたは何を求めていますか？'
+            '02': 'あなたは何を求めていますか\n'
                   '1. 企業の種類\n'
                   '2. 基本コンセプト\n'
                   '3. 事業の権利\n'
@@ -34,14 +36,14 @@ Node = {
     '202': {
         'text': {
             '01': 'Các loại hình công ty?\n'
-                  '1. Trách nhiệm hữu hạn 2 thành viên\n'
+                  '1. Trách nhiệm hữu hạn 2 thành viên trở \n'
                   '2. Trách nhiệm hữu hạn 1 thành viên\n'
                   '3. Doanh nghiệp nhà nước\n'
                   '4. Công ty cổ phần\n'
                   '5. Công ty hợp danh\n'
                   '6. Doanh nghiệp tư nhân',
-            '02': '企業の種類？'
-                  '1. 2人のメンバーの責任限度額\n'
+            '02': '企業の種類?\n'
+                  '1. 2人以上のメンバーの責任限定\n'
                   '2. 1メンバー有限責任\n'
                   '3. 国有企業\n'
                   '4. 合資会社\n'
@@ -60,7 +62,7 @@ Node = {
 
     '203': {
         'text': {
-            '01': 'Trách nhiệm hữu hạn 2 thành viên?\n'
+            '01': 'Trách nhiệm hữu hạn 2 thành viên trở lên?\n'
                   '1. Định nghĩa\n'
                   '2. Vốn\n'
                   '3. Quyền của thành viên\n'
@@ -68,7 +70,7 @@ Node = {
                   '5. Hội đồng thành viên\n'
                   '6. Giám đốc, Tổng giám đốc\n'
                   '7. Khác',
-            '02': '2人のメンバーの責任限度額?\n'
+            '02': '2人以上のメンバーの責任限定?\n'
                   '1. 定義\n'
                   '2. 首都\n'
                   '3. メンバーシップの権利\n'
@@ -302,7 +304,7 @@ Node = {
         'text': {
             '01': 'Doanh nghiệp tư nhân?\n'
                   '1. Khác',
-            '02': '民間企業？'
+            '02': '民間企業?\n'
                   '1. その他',
         },
         'quick_reply': [
@@ -315,7 +317,7 @@ Node = {
             '01': 'Thành lập doanh nghiệp?\n'
                   '1. Khác',
             # TODO chuyen sang tieng Nhat
-            '02': 'ビジネスの確立？'
+            '02': 'ビジネスの確立?\n'
                   '1. その他',
         },
         'quick_reply': [
@@ -328,7 +330,7 @@ Node = {
             '01': 'Tổ chức lại, giải thể và phá sản?\n'
                   '1. Khác',
             # TODO chuyen sang tieng Nhat
-            '02': '再編、解散、破産？'
+            '02': '再編、解散、破産?\n'
                   '1. その他',
         },
         'quick_reply': [
