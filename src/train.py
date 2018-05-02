@@ -44,6 +44,20 @@ path = os.path.dirname(os.path.abspath(__file__))
 # il.print_dict_into_xlsx_and_txt(inp_xlsx=file_dict_law_land, dict_num_rows=300, id_column_question=2, out_xlsx=save_dict_law_land_xlsx, out_txt=save_dict_law_land_txt)
 
 
+# luat thue tai san
+
+# # tu dien chi gom cac tu trong bo luat dict001.xlsx 16 row
+file_dict_property_tax = os.path.join(ib.path_property_tax_law, 'dict001.xlsx')
+save_dict_property_tax_xlsx = os.path.join(ib.path_property_tax_law, 'law_dict.xlsx')
+save_dict_property_tax_txt = os.path.join(ib.path_property_tax_law, 'law_dict.txt')
+il.print_dict_into_xlsx_and_txt(inp_xlsx=file_dict_property_tax, dict_num_rows=16, id_column_question=2, out_xlsx=save_dict_property_tax_xlsx, out_txt=save_dict_property_tax_txt)
+
+# tu dien chi gom cac cau hoi tao ra dict001.xlsx 99 row
+file_dict_property_tax = os.path.join(ib.path_property_tax_law, 'dict002.xlsx')
+save_dict_property_tax_xlsx = os.path.join(ib.path_property_tax_law, 'normal_dict.xlsx')
+save_dict_property_tax_txt = os.path.join(ib.path_property_tax_law, 'normal_dict.txt')
+il.print_dict_into_xlsx_and_txt(inp_xlsx=file_dict_property_tax, dict_num_rows=99, id_column_question=2, out_xlsx=save_dict_property_tax_xlsx, out_txt=save_dict_property_tax_txt)
+
 
 
 # 1.2: training
@@ -53,6 +67,11 @@ law_dict_txt = 'law_dict.txt'
 normal_dict_txt = 'normal_dict.txt'
 
 # duong link dan den tung file tu dien
+
+# folder luat thue tai san
+law_dict_property_tax_txt = os.path.join(ib.path_property_tax_law, law_dict_txt)
+normal_dict_property_tax_txt = os.path.join(ib.path_property_tax_law, normal_dict_txt)
+
 # folder luat doanh nghiep
 law_dict_enterprise_txt = os.path.join(ib.path_law_in_enterprise, law_dict_txt)
 normal_dict_enterprise_txt = os.path.join(ib.path_law_in_enterprise, normal_dict_txt)
@@ -63,39 +82,47 @@ normal_dict_land_txt = os.path.join(ib.path_law_on_land, normal_dict_txt)
 
 train_xlsx = 'train001.xlsx'
 
-# training cho luat doanh nghiep
-# file train cho luat doanh nghiep gom 372 rows, column_question = 2, colum_lable = 3
-training_enterprise_xlsx = os.path.join(ib.path_law_in_enterprise, train_xlsx)
-X, y = il.gen_feature_table_labels(inp_xlsx=training_enterprise_xlsx, num_rows=372, id_column_question=2, id_column_label=3, normal_dict_txt=normal_dict_enterprise_txt)
-clf = isk.train_by_MLPClassifier_regularization(X, y, hidden_layer_sizes=213, alpha=0.2, max_iter=400)
-# save model
-joblib.dump(clf, 'iLawyer_enterprise.pkl')
-cal_labels = isk.gen_prediction(clf, X)
-correct_labels = y
-performance = isk.cal_performance(correct_labels, cal_labels)
-print "Performances MLP training set for Enterprise: ", performance
 
-
-# training cho luat dat dai
-# file train cho luat dat dai gom 300 rows, column_question = 2, colum_lable = 3
-training_land_xlsx = os.path.join(ib.path_law_on_land, train_xlsx)
-X, y = il.gen_feature_table_labels(inp_xlsx=training_land_xlsx, num_rows=300, id_column_question=2, id_column_label=3, normal_dict_txt=normal_dict_land_txt)
-clf = isk.train_by_MLPClassifier_regularization(X, y, hidden_layer_sizes=212, alpha=0.2, max_iter=400)
-
-# save model
-joblib.dump(clf, 'iLawyer_land.pkl')
-cal_labels = isk.gen_prediction(clf, X)
-correct_labels = y
-performance = isk.cal_performance(correct_labels, cal_labels)
-print "Performances MLP training set for MLP: ", performance
-
-
-
-#
-# clf = isk.train_by_MLPClassifier_regularization(X, y, hidden_layer_sizes=(num_features), alpha=0.2, max_iter=400)
+# # training cho luat thue tai san
+# # file train cho luat doanh nghiep gom 99 rows, column_question = 2, colum_lable = 3
+# training_enterprise_xlsx = os.path.join(ib.path_property_tax_law, train_xlsx)
+# X, y = il.gen_feature_table_labels(inp_xlsx=training_enterprise_xlsx, num_rows=84, id_column_question=2, id_column_label=3, normal_dict_txt=normal_dict_property_tax_txt)
+# clf = isk.train_by_MLPClassifier_regularization(X, y, hidden_layer_sizes=213, alpha=0.2, max_iter=400)
 # # save model
-# joblib.dump(clf, 'iLawyer.pkl')
+# joblib.dump(clf, '103.pkl')
+# cal_labels = isk.gen_prediction(clf, X)
+# correct_labels = y
+# performance = isk.cal_performance(correct_labels, cal_labels)
+# print "Performances MLP training set for Enterprise: ", performance
+
 #
+# # training cho luat doanh nghiep
+# # file train cho luat doanh nghiep gom 372 rows, column_question = 2, colum_lable = 3
+# training_enterprise_xlsx = os.path.join(ib.path_law_in_enterprise, train_xlsx)
+# X, y = il.gen_feature_table_labels(inp_xlsx=training_enterprise_xlsx, num_rows=372, id_column_question=2, id_column_label=3, normal_dict_txt=normal_dict_enterprise_txt)
+# clf = isk.train_by_MLPClassifier_regularization(X, y, hidden_layer_sizes=213, alpha=0.2, max_iter=400)
+# # save model
+# joblib.dump(clf, 'iLawyer_enterprise.pkl')
+# cal_labels = isk.gen_prediction(clf, X)
+# correct_labels = y
+# performance = isk.cal_performance(correct_labels, cal_labels)
+# print "Performances MLP training set for Enterprise: ", performance
+#
+#
+# # training cho luat dat dai
+# # file train cho luat dat dai gom 300 rows, column_question = 2, colum_lable = 3
+# training_land_xlsx = os.path.join(ib.path_law_on_land, train_xlsx)
+# X, y = il.gen_feature_table_labels(inp_xlsx=training_land_xlsx, num_rows=300, id_column_question=2, id_column_label=3, normal_dict_txt=normal_dict_land_txt)
+# clf = isk.train_by_MLPClassifier_regularization(X, y, hidden_layer_sizes=212, alpha=0.2, max_iter=400)
+#
+# # save model
+# joblib.dump(clf, 'iLawyer_land.pkl')
+# cal_labels = isk.gen_prediction(clf, X)
+# correct_labels = y
+# performance = isk.cal_performance(correct_labels, cal_labels)
+# print "Performances MLP training set for MLP: ", performance
+
+
 
 #
 # # 1.3: post-processing

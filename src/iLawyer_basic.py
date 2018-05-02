@@ -21,7 +21,7 @@ if '/'  in path:
 # duong dan link
 path_law_in_enterprise = path.replace('src','data' + backslash + 'lawInEnterprise')
 path_law_on_land = path.replace('src','data' + backslash + 'lawOnLand')
-
+path_property_tax_law = path.replace('src','data' + backslash + 'PropertyTaxLaw')
 
 path_run_NLP = path.replace('/src', '/NLP')
 sys.path.insert(0, path_run_NLP)
