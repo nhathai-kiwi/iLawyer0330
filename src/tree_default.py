@@ -19,15 +19,18 @@ Tree =  {
             # 'What area of law are you interested in?',
             '01': 'Lĩnh vực luật bạn quan tâm?\n'
                   '1. Luật doanh nghiệp\n'
-                  '2. Luật đất đai',
+                  '2. Luật đất đai\n'
+                  '3. Luật thuế tài sản',
 
             '02': '興味のある法律分野ですか?\n'
                   '1. 企業法は、\n'
-                  '2. 土地法',
+                  '2. 土地法\n'
+                  '3. 財産税法',
         },
         'quick_reply': [
             {'title': '1', 'payload': '101'},
             {'title': '2', 'payload': '102'},
+            {'title': '3', 'payload': '103'},
         ]
     },
     # xu li cac node noi bo trong tree (ko phai nut la, cac nut co quick reply dua ra goi y cho nguoi dung) trong mot bo luat
