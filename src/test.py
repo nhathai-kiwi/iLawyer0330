@@ -12,8 +12,17 @@ from facebook_page import page
 
 file_name = tree_101
 
-print tree_101.Node
 
+def get_payload_from_text(message, quick_reply_array):
+    message = message.lower()
+    for dict in quick_reply_array:
+        title = dict['title'].lower()
+        pay_load = dict['payload']
+        if message == title:
+            return pay_load
+    return -1
+
+print "Value: ", get_payload_from_text('日語', td.Tree['0']['quick_reply'])
 
 
 
@@ -54,6 +63,3 @@ print tree_101.Node
 # for i in dict['Name']:
 #     print i=
 #
-lang = 'ja'
-import config_web as cw
-print cw.node_1['text'][lang]

@@ -5,7 +5,7 @@ Tree =  {
     '0': {
         'text': 'Which language would you like to use',
         'quick_reply': [
-            {'title': 'vietnamese', 'payload': '01'},
+            {'title': 'Vietnamese', 'payload': '01'},
             {'title': '日本語', 'payload': '02'},
         ]
     },
@@ -19,15 +19,18 @@ Tree =  {
             # 'What area of law are you interested in?',
             '01': 'Lĩnh vực luật bạn quan tâm?\n'
                   '1. Luật doanh nghiệp\n'
-                  '2. Luật đất đai',
+                  '2. Luật đất đai\n'
+                  '3. Luật thuế tài sản',
 
             '02': '興味のある法律分野ですか?\n'
                   '1. 企業法は、\n'
-                  '2. 土地法',
+                  '2. 土地法\n'
+                  '3. 財産税法',
         },
         'quick_reply': [
             {'title': '1', 'payload': '101'},
             {'title': '2', 'payload': '102'},
+            {'title': '3', 'payload': '103'},
         ]
     },
     # xu li cac node noi bo trong tree (ko phai nut la, cac nut co quick reply dua ra goi y cho nguoi dung) trong mot bo luat
@@ -55,16 +58,22 @@ Tree =  {
             '01': 'Bạn có muốn tiếp tục đặt câu hỏi nữa không?',
             '02': 'あなたは質問を続けておきたいですか'
         },
-        'quick_reply': {
-            '01':[
-                {'title': 'Có', 'payload': '100'},
-                {'title': 'Không', 'payload': '2001'}
-            ],
-            '02':[
-                {'title': 'はい', 'payload': '100'},
-                {'title': 'いいえ。', 'payload': '2001'}
-            ]
-        }
+        # 'quick_reply': {
+        #     '01':[
+        #         {'title': 'Có', 'payload': '100'},
+        #         {'title': 'Không', 'payload': '2001'}
+        #     ],
+        #     '02':[
+        #         {'title': 'はい', 'payload': '100'},
+        #         {'title': 'いいえ。', 'payload': '2001'}
+        #     ]
+        # }
+
+        'quick_reply': [
+            {'title': 'Yes', 'payload': '100'},
+            {'title': 'No', 'payload': '2001'},
+        ]
+
     },
 
     # tin nhan danh dau nguoi dung ket thuc cau hoi
