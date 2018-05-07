@@ -55,8 +55,9 @@ def get_artilce(law_xlsx, num_article):
     array_answer = []
 
     len_answer = len(answer)
+
     for i in range(0, (len_answer + 1499) / 1500):
-        value = answer[i * 1500 : (i + 1) * 1500 - 1]
+        value = answer[(i * 1500): ((i + 1) * 1500 - 1)]
         array_answer.append(value)
 
     return array_answer
@@ -87,18 +88,15 @@ def get_answer_from_text(text, model, law_xlsx, type_law):
     answer = ib.get_article_from_prediction(law_xlsx, y_question[0], id_column_content)
 
     # print "Len answer: ", len(answer)
-    # Gioi han noi dung tin nhan tra loi <= 2000 ki tu (giao dien messenger cho phep nguoi dung gui tin nhan toi da 2000 ki tu)
-    if len(answer) > 2000:
-        answer = answer[0:2000]
-    # 0::1500
+
     array_answer = []
 
     len_answer = len(answer)
     for i in range(0, (len_answer + 1499) / 1500):
-        value = answer[i * 1500 : (i + 1) * 1500 - 1]
+        value = answer[ (i * 1500) : ((i + 1) * 1500 - 1) ]
         array_answer.append(value)
         # print "Answer: ", ret
-    return answer
+    return array_answer
 
 
 # text: cau hoi tu nguoi dung, cau tra loi cho luat dat dai
