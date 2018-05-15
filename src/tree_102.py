@@ -6,7 +6,7 @@ Node = {
     # Node i ung voi item thu 200 + i
     '201': {
         'text': {
-            '01': 'Bạn muốn hỏi gì?\n'
+            'vi': 'Bạn muốn hỏi gì?\n'
                   '1. Tìm hiểu về các khái niệm cơ bản\n'
                   '2. Phân loại đất\n'
                   '3. Giấy chứng nhận quyền sử dụng đất\n'
@@ -14,7 +14,7 @@ Node = {
                   '5. Thu hồi\n'
                   '6. Bồi thường\n'
                   '7. Chuyển nhượng',
-            '02': 'あなたは何を求めていますか？ \n'
+            'ja': 'あなたは何を求めていますか？ \n'
                   '1. 基本的な概念について学ぶ\n'
                   '2. 土地の分類\n'
                   '3. 土地使用権証明書\n'
@@ -36,13 +36,13 @@ Node = {
 
     '202': {
         'text': {
-            '01': 'Giấy chứng nhận quyền sử dụng đất?\n'
+            'vi': 'Giấy chứng nhận quyền sử dụng đất?\n'
                   '1. Đang sử dụng và có giấy tờ\n'
                   '2. Đang sử dụng và không có giấy tờ\n'
                   '3. Cấp cho tổ chức, cơ sở tôn giáo đang sử dụng\n'
                   '4. Cấp cho tài sản gắn liền với đất\n'
                   '5. Thẩm quyền cấp\n',
-            '02': '土地使用権証明書?\n'
+            'ja': '土地使用権証明書?\n'
                   '1. 使用され、論文を持っている\n'
                   '2. 使用され、文書化されていない\n'
                   '3. 使用中の組織や宗教施設に発行される\n'
@@ -60,10 +60,10 @@ Node = {
 
     '203': {
         'text': {
-            '01': 'Tranh chấp đất đai?\n'
+            'vi': 'Tranh chấp đất đai?\n'
                   '1. Hòa giải\n'
                   '2. Thẩm quyền giải quyết tranh chấp',
-            '02': '土地紛争?\n'
+            'ja': '土地紛争?\n'
                   '1. 調停\n'
                   '2. 紛争解決能力',
         },
@@ -75,10 +75,10 @@ Node = {
 
     '204': {
         'text': {
-            '01': 'Thu hồi?\n'
+            'vi': 'Thu hồi?\n'
                   '1. Các trường hợp thu hồi\n'
                   '2. Thẩm quyền thu hồi',
-            '02': '失効?\n'
+            'ja': '失効?\n'
                   '1. リコールのケース\n'
                   '2. 失効の管轄',
         },
@@ -90,12 +90,12 @@ Node = {
 
     '205': {
         'text': {
-            '01': 'Các trường hợp thu hồi?\n'
+            'vi': 'Các trường hợp thu hồi?\n'
                   '1. Quốc phòng, an ninh\n'
                   '2. Lợi ích công cộng\n'
                   '3. Vi phạm pháp luật về đất đai\n'
                   '4. Khác\n',
-            '02': 'リコールのケース?\n'
+            'ja': 'リコールのケース?\n'
                   '1. 防衛と安全\n'
                   '2. 公益\n'
                   '3. 土地法を破る\n'
@@ -111,10 +111,10 @@ Node = {
 
     '206': {
         'text': {
-            '01': 'Bồi thường?\n'
+            'vi': 'Bồi thường?\n'
                   '1. Bồi thường về đất\n'
                   '2. Bồi thường về tài sản',
-            '02': '取締役、総監督?\n'
+            'ja': '取締役、総監督?\n'
                   '1. 定義\n'
                   '2. 基準、条件',
         },
@@ -126,12 +126,12 @@ Node = {
 
     '207': {
         'text': {
-            '01': 'Bồi thường về đất?\n'
+            'vi': 'Bồi thường về đất?\n'
                   '1. Nguyên tắc bồi thường về đất\n'
                   '2. Điều kiện được bồi thường về đất\n'
                   '3. Các trường hợp bồi thường về đất\n'
                   '4. Hỗ trợ ngoài bồi thường về đất',
-            '01': '土地補償?\n'
+            'ja': '土地補償?\n'
                   '1. 土地補償の原則\n'
                   '2. 土地補償の条件\n'
                   '3. 土地補償の場合\n'
@@ -148,7 +148,7 @@ Node = {
 
     '208': {
         'text': {
-            '01': 'Các trường hợp bồi thường về đất?\n'
+            'vi': 'Các trường hợp bồi thường về đất?\n'
                   '1. Quốc phòng, an ninh, lợi ích công cộng\n'
                   '2. Đất nông nghiệp\n'
                   '3. Tổ chức kinh tế, công đồng dân cư, cơ sở tôn giáo\n'
@@ -156,7 +156,7 @@ Node = {
                   '5. Đất phi nông nghiệp không phải đất ở của cá nhân, hộ gia đình\n'
                   '6. Đất phi nông nghiệp không phải đất ở của tổ chức kinh tế, cộng đồng dân cư, cơ sở tôn giáo, ng vn ở nc ngoài, tổ chức nc ngoài\n'
                   '7. Trường hợp không đc bồi thường',
-            '02': '土地補償の場合?\n'
+            'ja': '土地補償の場合?\n'
                   '1. 防衛、安全保障、公益\n'
                   '2. 農地\n'
                   '3. 経済団体、地域社会、宗教施設\n'
@@ -179,14 +179,14 @@ Node = {
 
     '209': {
         'text': {
-            '01': 'Hỗ trợ ngoài bồi thường về đất?\n'
+            'vi': 'Hỗ trợ ngoài bồi thường về đất?\n'
                   '1. Nguyên tắc hỗ trợ\n'
                   '2. Các khoản hỗ trợ\n'
                   '3. Hộ trợ đào tạo, chuyển đổi nghề, tìm kiếm việc làm\n'
                   '4. Tái định cư\n'
                   '5. Tái định cư\n'
                   '6. Tái định cư\n',
-            '02': '土地補償のサポート?\n'
+            'ja': '土地補償のサポート?\n'
                   '1. サポートの原則\n'
                   '2. 資金\n'
                   '3. トレーニングサポート、求人情報の変更、求人検索\n'
@@ -206,11 +206,11 @@ Node = {
 
     '210': {
         'text': {
-            '01': 'Bồi thường về tài sản?\n'
+            'vi': 'Bồi thường về tài sản?\n'
                   '1. Nguyên tắc bồi thường về tài sản\n'
                   '2. Các trường hợp bồi thường về tài sản\n'
                   '3. Hỗ trợ ngoài bồi thường về tài sản',
-            '02': '財産に対する補償?\n'
+            'ja': '財産に対する補償?\n'
                   '1. 財産の補償の原則\n'
                   '2. 財産に対する補償\n'
                   '3. 財産補償に加えて支援',
@@ -224,14 +224,14 @@ Node = {
 
     '211': {
         'text': {
-            '01': 'Các trường hợp bồi thường về tài sản?\n'
+            'vi': 'Các trường hợp bồi thường về tài sản?\n'
                   '1. Thiệt hại về nhà, công trình\n'
                   '2. Cây trồng, vật nuôi\n'
                   '3. Chi phí di chuyển\n'
                   '4. Trường hợp không được bồi thường\n'
                   '5. Chi trả tiền bồi thường, hỗ trợ, tái định cư\n'
                   '6. Hành lang an toàn',
-            '02': '財産に対する補償?\n'
+            'ja': '財産に対する補償?\n'
                   '1. 家へのダメージ、作品\n'
                   '2. 作物と家畜\n'
                   '3. 旅費\n'
@@ -252,9 +252,9 @@ Node = {
 
     '212': {
         'text': {
-            '01': 'Hỗ trợ ngoài bồi thường về tài sản?\n'
+            'vi': 'Hỗ trợ ngoài bồi thường về tài sản?\n'
                   '1. Khác',
-            '02': '財産補償に加えて支援?\n'
+            'ja': '財産補償に加えて支援?\n'
                   '1. その他',
         },
         'quick_reply': [

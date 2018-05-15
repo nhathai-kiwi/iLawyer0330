@@ -1,42 +1,112 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-# iLawyer basic functions
 
-import numpy as np
-import openpyxl
-import iLawyer_scikit as isk
-from collections import OrderedDict
+"""ILawyer basic functions"""
+
 import os
 import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
-path = os.path.dirname(os.path.abspath(__file__))
+import openpyxl
+from googletrans import Translator
+import json
+
+PATH_FOLDER_OF_FILE = os.path.dirname(os.path.abspath(__file__))
 
 # bien backslash de thay doi duong dan link tren Mac/ Window
 # duong dan tren Mac: /; tren Window: \
-backslash = '\\'
-if '/'  in path:
-    backslash = '/'
+BACKSLASH = '\\'    # gia tri default: \
+if '/' in PATH_FOLDER_OF_FILE:
+    BACKSLASH = '/'
+# DONE
+# Quy uoc id: 101: Luat doanh nghiep, 102: Luat dat dai, 103: Luat Thue Tai san
 
-# duong dan link
-path_law_in_enterprise = path.replace('src','data' + backslash + 'lawInEnterprise')
-path_law_on_land = path.replace('src','data' + backslash + 'lawOnLand')
-path_property_tax_law = path.replace('src','data' + backslash + 'PropertyTaxLaw')
+# so luong row ung voi moi file dict001.xlsx, dict002.xlsx voi tung bo luat
+NUM_ROWS_DICT = [[214, 372], [213, 300], [16, 99]]
+# so luong row ung voi moi file train001.xlsx voi tung bo luat
+NUM_ROWS_TRAIN = [[372], [300], [99]]
 
-path_run_NLP = path.replace('/src', '/NLP')
-sys.path.insert(0, path_run_NLP)
+# file chua cac tu profanity
+PROFANITY_TXT = 'profanity.txt'
+
+def print_data_json(data, out_json):
+    """print date (type dict) ra file json"""
+    f = open(out_json, "w")
+    json.dump(data, f, ensure_ascii=False)
+    f.close()
+# DONE
 
 
-# delete file has a name inp_fileName
+def get_data_from_json(inp_json):
+    """get data from file json"""
+    value = {}
+    with open(inp_json) as json_data:
+        value = json.load(json_data)
+    return value
+# DONE
+
+
+# ###########: import thong tin dict tu file .py ra file json
+# import tree_default
+# value = tree_default.Tree
+# print_data_json(value, '100.json')
+# # Luat doanh nghiep
+# import tree_101
+# value = tree_101.Node
+# print_data_json(value, '101.json')
+# # Luat dat dai
+# import tree_102
+# value = tree_102.Node
+# print_data_json(value, '102.json')
+# # Luat thue tai san
+# import tree_103
+# value = tree_103.Node
+# print_data_json(value, '103.json')
+
+# import file json chua thong tin decision tree tuong ung voi cac dieu luat
+LAW_TREE = []
+LAW_TREE.append(get_data_from_json('100.json'))
+LAW_TREE.append(get_data_from_json('101.json'))
+LAW_TREE.append(get_data_from_json('102.json'))
+LAW_TREE.append(get_data_from_json('103.json'))
+# neu them dieu luat moi thi them mot dong, chang han nhu: LAW_TREE.append(get_data_from_json('104.json'))
+
+
+def get_path_law_foler(law_id):
+    """lay duong dan folder chua luat co id = law_id"""
+    return PATH_FOLDER_OF_FILE.replace('src', 'data' + BACKSLASH + str(law_id))
+# DONE
+
+
+def get_path_file_name(law_id, file_name):
+    """lay duong dan den file (file_name) cua luat co id = law_id"""
+    return os.path.join(get_path_law_foler(law_id), file_name)
+# DONE
+
+
+def get_path_dict_txt_xlsx(law_id):
+    """lay duong dan den file law_dict, normal_dict cua luat co id = law_id"""
+    basic_dict_txt = os.path.join(get_path_law_foler(law_id), 'basic_dict.txt')
+    basic_dict_xlsx = os.path.join(get_path_law_foler(law_id), 'basic_dict.xlsx')
+    standard_dict_txt = os.path.join(get_path_law_foler(law_id), 'standard_dict.txt')
+    standard_dict_xlsx = os.path.join(get_path_law_foler(law_id), 'standard_dict.xlsx')
+    return basic_dict_txt, basic_dict_xlsx, standard_dict_txt, standard_dict_xlsx
+# DONE
+
+
+
+
+
 def process_delete_file(inp_file_name):
+    """Delete file has a name inp_file_name"""
     cmd = "rm -rf " + inp_file_name
     os.system(cmd)
     return 0
 # DONE
 
 
-# read data in id_column from inp_xlsx from the second row
 def gen_column_from_xlsx(inp_xlsx, num_rows, id_column):
+    """Read data in id_column col from file inp_xlsx from the second row"""
     data = []
     book = openpyxl.load_workbook(inp_xlsx)
     sheet = book.active
@@ -47,32 +117,11 @@ def gen_column_from_xlsx(inp_xlsx, num_rows, id_column):
 # DONE
 
 
-# print content of a prediction to txt file
-# by default articles are stored in 2nd colums from the second row
-# get article has id = answer_number --> return index( row = answer_number + 1, colums = id_column)
-# TODO explain default value inp_xlsx = 'lawInEnterprise.xlsx'
-def print_txt_from_prediction(inp_xlsx, answer_number, id_column, out_txt):
-    # get article: answer_number from inp_xlsx file
+def get_article_from_prediction(inp_xlsx, article_number, id_column):
+    """get article has id = article_number from file inp_xlsx, colums: id_columns """
     book = openpyxl.load_workbook(inp_xlsx)
     sheet = book.active
-    article = sheet.cell(row = answer_number + 1, column = id_column).value
-    # remove one character '\n'
-    replace = chr(10) + chr(10)
-    article = article.replace(replace, "\n")
-
-    # write article to txt file
-
-    f = open(out_txt, "w")
-    f.write(article)
-    f.close()
-    return 0
-# DONE
-
-# get article has id = answer_number
-def get_article_from_prediction(inp_xlsx, answer_number, id_column):
-    book = openpyxl.load_workbook(inp_xlsx)
-    sheet = book.active
-    article = sheet.cell(row=answer_number + 1, column=id_column).value
+    article = sheet.cell(row=article_number + 1, column=id_column).value
     # remove one character '\n'
     replace = chr(10) + chr(10)
     article = article.replace(replace, "\n")
@@ -80,42 +129,37 @@ def get_article_from_prediction(inp_xlsx, answer_number, id_column):
 # DONE
 
 
-# print string element to txt file
-def print_txt_from_string_element(string_element, out_txt):
+def print_txt_from_string(string_value, out_txt):
+    """print string_value (string_value either str type or list-str type) to txt file"""
+
     f = open(out_txt, "w")
-    f.write(str(string_element))
+    # check type(string_value) is str or list
+    if isinstance(string_value, (list,)):
+        for each_string in string_value:
+            f.write(str(each_string) + '\n')
+    else:
+        f.write(str(string_value))
+
     f.close()
     return 0
 # DONE
 
 
-# print array to txt file, each element in a line
-def print_txt_from_array(string_array, out_txt):
-    f = open(out_txt, "w")
-    for each_string in string_array:
-        f.write(str(each_string) + "\n")
-    f.close()
-    return 0
-# DONE
-
-
-# process vncore
-# input: file name of a txt file
-# output: TODO add description here
 def process_vncore(inp_txt, out_txt):
+    """Word segmentation from file: inp_txt, output file: out_txt"""
     cmd = "java RDRsegmenter " + inp_txt + " " + out_txt
     os.system(cmd)
     return 0
 # DONE
 
 
-# generate string array from txt file
 def gen_array_from_txt(inp_txt):
+    """generate string array from txt file"""
     string_array = []
     f = open(inp_txt, 'r')
     for each_string in f:
         str = each_string
-        if ord(str[len(str) - 1 ]) == 10:
+        if ord(str[len(str) - 1]) == 10:    # check str has a break line
             str = str[:-1]
         string_array.append(str)
     f.close()
@@ -123,8 +167,8 @@ def gen_array_from_txt(inp_txt):
 # DONE
 
 
-# remove identical element from an array
 def gen_distinct_array(inp_arr):
+    """remove identical element from an array"""
     out_arr = []
     dicts = {}
     for element in inp_arr:
@@ -136,121 +180,74 @@ def gen_distinct_array(inp_arr):
 # DONE
 
 
-# remove identical element from an array
-def gen_distinct_array_with_count(inp_arr):
-    out_arr = []
-    dicts = {}
-    for element in inp_arr:
-        value = dicts.get(element, 0)
-        dicts[element] = value + 1
-
-    # print "Len dicts: ", len(dicts)
-    dictsSort = OrderedDict(sorted(dicts.items(), key=lambda x: x[1], reverse=True))
-    # print "Len dictSort: ", len(dictsSort)
-
-    for key, value in dictsSort.items():
-        out_arr.append(key + " " + str(value))
-        #print "Here: ", key, " ", value
-    return out_arr
-# DONE
-
-
-# generate words (string array) from output of vncore
-# manipulation includes: ignore all words starting with digit,
-# replace underscore by space and change all characters to lower case
 def gen_words_from_vncore_out_txt(vn_core_out_txt):
+    """
+    # generate words (string array) from output of vncore
+    # manipulation includes: ignore all words starting with digit,
+    # replace underscore by space and change all characters to lower case
+    """
     words_replicated = []
     lines = gen_array_from_txt(vn_core_out_txt)
     for line in lines:
         text = line
-        if not text[0].isdigit():  # ignore all words starting with digit
-            word = text.replace('_', ' ').lower()  # replace underscore by space, change all characters to lower case
+        if not text[0].isdigit():   # ignore all words starting with digit
+            # replace underscore by space, change all characters to lower case
+            word = text.replace('_', ' ').lower()
             words_replicated.append(word)
     # replicated words will be handled in gen_distinct_array
     return words_replicated
+# DONE
 
 
-# generate words (string array) from output of vncore
-# manipulation includes those listed in gen_words_from_vncore_out_txt
-# keep only words with multiple syllables
-def gen_words_from_vncore_out_txt_02(vn_core_out_txt):
-    words_replicated = []
-    lines = gen_array_from_txt(vn_core_out_txt)
-    for line in lines:
-        texts = line.split(chr(9))
-        if len(texts) == 6:
-            text = texts[1]
-            if not text[0].isdigit(): # ignore all words starting with digit
-                if text.find('_') != -1:
-                    word = text.replace('_', ' ').lower() # replace underscore by space, change all characters to lower case
-                    words_replicated.append(word)
-    return words_replicated
+def gen_feature_vector(string_array, standard_dict_txt):
+    """generate feature vector (numeric array)
+    standard_dict_txt: file chua tu dien normal
+    """
 
+    dict_array = gen_array_from_txt(standard_dict_txt)
 
-# generate feature vector (numeric array)
-def gen_feature_vector(string_array, normal_dict_txt):
-    feature_vector = []
+    # remove all the string duplicate in string_array by dictinary - STL python
+    dict_string_array = {}
 
-    dict = gen_array_from_txt(normal_dict_txt)
-
-    dict_string_array = {} # remove all the string duplicate in string_array by dictinary - STL python
     for element in string_array:
         value = dict_string_array.get(element, 0)
         dict_string_array[element] = value + 1
 
-    for word in dict:
+    feature_vector = []
+    for word in dict_array:
         if word in dict_string_array:
             feature_vector.append(1)
         else:
             feature_vector.append(0)
+
     return feature_vector
 # DONE
 
 
-# generate feature vector (numeric 1D array) from a question
-def gen_input_vector_from_txt(inp_array):
-
-    print_txt_from_array(inp_array, 'vncore_inp.txt')
+def gen_string_array_from_text(text):
+    """generate string array from text, text either str type or list (str) type"""
+    print_txt_from_string(text, 'vncore_inp.txt')
     process_vncore('vncore_inp.txt', 'vncore_out.txt')
-    string_array = gen_words_from_vncore_out_txt('vncore_out.txt')
 
-    inp_vector = gen_feature_vector(string_array)
+    string_array = gen_words_from_vncore_out_txt('vncore_out.txt')
 
     process_delete_file('vncore_inp.txt')
     process_delete_file('vncore_out.txt')
 
+    return string_array
+# DONE
+
+
+def gen_input_vector_from_text(text, standard_dict_txt):
+    """generate feature vector (numeric 1D array) from a question (text)"""
+    string_array = gen_string_array_from_text(text)
+    inp_vector = gen_feature_vector(string_array, standard_dict_txt)
     return inp_vector
 # DONE
 
 
-# generate word from inp_txt, return list string
-def gen_string_array_from_txt(inp_txt):
-
-    process_vncore(inp_txt, 'vncore_out.txt')
-    string_array = gen_words_from_vncore_out_txt('vncore_out.txt')
-
-    return string_array
-
-# DONE
-
-
-# check question have at least 2 keywords (keyword from file dict001.txt contains 241 words)
-def check_question_at_least_2_keywords(string_array, law_dict_txt):
-
-    keywords = gen_array_from_txt(law_dict_txt)
-
-    # counting number of string_array list in keywords
-    cnt = 0
-    for word in string_array:
-        if word in keywords:
-            print "word in keyword: ", word
-            cnt += 1
-    return cnt > 1
-
-
-# generate feature table (numeric 2D array) from a training set stored in xlsx
-# TODO rename function
-def gen_feature_table_from_xlsx(inp_xlsx, num_rows, id_column_question, normal_dict_txt):
+def gen_feature_table_from_xlsx(inp_xlsx, num_rows, id_column_question, standard_dict_txt):
+    "generate feature table (numeric 2D array) from a training set stored in xlsx"
     separator = 'separator'
     feature_table = []
     all_questions = gen_column_from_xlsx(inp_xlsx, num_rows, id_column_question)
@@ -261,25 +258,24 @@ def gen_feature_table_from_xlsx(inp_xlsx, num_rows, id_column_question, normal_d
         questions_with_seperator.append(separator)
         questions_with_seperator.append(question)
 
-    print_txt_from_array(questions_with_seperator, 'vncore_inp.txt')
+    print_txt_from_string(questions_with_seperator, 'vncore_inp.txt')
     process_vncore('vncore_inp.txt', 'vncore_out.txt')
     string_array = gen_words_from_vncore_out_txt('vncore_out.txt')
 
     # separating question and get its feature vector
     question = []
-    cnt = 0
     for each_string in string_array:
         if each_string == separator:
-            if len(question) == 0:
+            if not question:
                 continue
-            feature_vector = gen_feature_vector(question, normal_dict_txt)
+            feature_vector = gen_feature_vector(question, standard_dict_txt)
             feature_table.append(feature_vector)
             question = []
         else:
             question.append(each_string)
 
     # add a last feature_vector question
-    feature_vector = gen_feature_vector(question, normal_dict_txt)
+    feature_vector = gen_feature_vector(question, standard_dict_txt)
     feature_table.append(feature_vector)
 
     process_delete_file('vncore_inp.txt')
@@ -289,29 +285,60 @@ def gen_feature_table_from_xlsx(inp_xlsx, num_rows, id_column_question, normal_d
 # DONE
 
 
-# test some of pair (alpha, number of iteration) im MLP model to choose the best (alpha, iteration)
-def test_alpha_and_iteration_in_MLP(X, y, X1, y1, alphas, max_iters, num_features):
-    for alpha in alphas:
-        for max_iter in max_iters:
-            print "Alpha: ", alpha, "max_iter: ", max_iter
-            clf = isk.train_by_MLPClassifier_regularization(X, y, num_features, alpha, max_iter)
-
-            cal_labels = isk.predict(clf, X)
-            correct_labels = y
-            performance = isk.cal_performance(correct_labels, cal_labels)
-            print "Performances MLP training set: ", performance
-
-            cal_labels = isk.predict(clf, X1)
-            correct_labels = y1
-
-            performance = isk.cal_performance(correct_labels, cal_labels)
-            print "Performances MLP test set: ", performance
+def trans_string_into_other_lang(origin_string, dest_lang):
+    """dich mot string sang ngon ngu dest_lang"""
+    translator = Translator()
+    # translator.detect(origin_string)  # xac dinh ngon ngu
+    return translator.translate(origin_string, dest=dest_lang).text
 # DONE
 
-# path_in_file = path + '/inp.txt'
-# path_out_file = path + '/out.txt'
-# print path_in_file, " ", path_out_file
 
-# ws.print_hello()
-# process_vncore('inp.txt', 'out.txt')
-# gen_words_from_vncore_out_txt('out.txt')
+def check_string_array_has_at_least_2_keywords(string_array, basic_dict_txt):
+    """kiem tra string_array (string_array thu duoc bang viec tach tu)
+    co it nhat 2 key_word trong bo luat tuong ung voi basic_dict_txt"""
+    keywords = gen_array_from_txt(basic_dict_txt)
+    # counting number of string_array list in keywords
+    cnt = 0
+    for word in string_array:
+        if word in keywords:
+            cnt += 1
+    return cnt > 1
+# DONE
+
+
+def check_string_array_has_profanity(string_array, profanity_txt):
+    """kiem tra string_array (string_array thu duoc bang viec tach tu)
+    co chua profanity khong, profanity duoc load tu file profanity_txt"""
+    keywords = gen_array_from_txt(profanity_txt)
+    # counting number of string_array list in keywords
+    cnt = 0
+    for word in string_array:
+        if word in keywords:
+            return True
+    return False
+# DONE
+
+
+
+def get_article(type_law, num_article, lang):
+    """lay dieu luat num_artilce trong file inp_xlsx o cot 2 cua file .xlsx"""
+    law_xlsx = type_law + '.xlsx'
+    answer = get_article_from_prediction(law_xlsx, num_article, id_column=2)
+    # answer = trans_string_into_other_lang(answer, lang)
+    array_answer = []
+    len_answer = len(answer)
+    # do gioi han moi tin nhan tren messenger là 2000 ki tu
+    # do vay tach dieu luat thanh mot array, moi phan tu cua array la mot string co do dai 1500 ki tu
+    for i in range(0, (len_answer + 1499) / 1500):
+        value = answer[(i * 1500): ((i + 1) * 1500)]
+        array_answer.append(value)
+    return array_answer
+# DONE
+
+
+
+
+
+
+
+

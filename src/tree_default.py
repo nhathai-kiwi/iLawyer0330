@@ -1,12 +1,37 @@
 # coding: utf-8
 
 Tree =  {
+
+    # text tra loi nguoi dung khi nguoi dung nhap noi dung tho tuc
+    'profanity_ans': {
+        'text': {
+            'vi': 'Câu hỏi của bạn chứa nội dung thô tục. Mời bạn thao tác lại.',
+            'ja': 'あなたの質問には下品な内容が含まれています。 再度有効にしてください。'
+        },
+    },
+
+    # text tra loi khi cau hoi cua nguoi dung chua it nhat 2 tu khoa
+    'miss_key_ans': {
+        'text': {
+            'vi': 'Câu hỏi của bạn không đầy đủ dữ kiện. Mời bạn thao tác lại.',
+            'ja': 'あなたの質問は不完全です。 再度有効にしてください。'
+        },
+    },
+
+    # text tra loi khi nguoi dung nhap sai title cua quick_reply
+    'invalid_quick_reply': {
+        'text': {
+            'vi': 'Nội dung bạn đưa ra không phù hợp. Mời bạn thao tác lại.',
+            'ja': 'あなたが提供した内容は適切ではありません。 再度有効にしてください。'
+        },
+    },
+
     # lua chon ngon ngu, payload danh so tu 01 --> 99
     '0': {
-        'text': 'Which language would you like to use',
+        'text': 'Which language would you like to use?',
         'quick_reply': [
-            {'title': 'Vietnamese', 'payload': '01'},
-            {'title': '日本語', 'payload': '02'},
+            {'title': 'Vietnamese', 'payload': '100'},
+            {'title': '日本語', 'payload': '100'},
         ]
     },
 
@@ -17,20 +42,20 @@ Tree =  {
     '100': {
         'text': {
             # 'What area of law are you interested in?',
-            '01': 'Lĩnh vực luật bạn quan tâm?\n'
+            'vi': 'Lĩnh vực luật bạn quan tâm?\n'
                   '1. Luật doanh nghiệp\n'
                   '2. Luật đất đai\n'
                   '3. Luật thuế tài sản',
 
-            '02': '興味のある法律分野ですか?\n'
+            'ja': '興味のある法律分野ですか?\n'
                   '1. 企業法は、\n'
                   '2. 土地法\n'
                   '3. 財産税法',
         },
         'quick_reply': [
-            {'title': '1', 'payload': '101'},
-            {'title': '2', 'payload': '102'},
-            {'title': '3', 'payload': '103'},
+            {'title': '1', 'payload': '201'},
+            {'title': '2', 'payload': '201'},
+            {'title': '3', 'payload': '201'},
         ]
     },
     # xu li cac node noi bo trong tree (ko phai nut la, cac nut co quick reply dua ra goi y cho nguoi dung) trong mot bo luat
@@ -43,11 +68,10 @@ Tree =  {
     # payload = 1000, dua ra cau hoi cho nguoi dung
     '1000': {
         'text': {
-            '01': 'Xin mời bạn đưa ra nội dung câu hỏi:',
-            '02': '質問を入力してください:'
-        }
+            'vi': 'Xin mời bạn đưa ra nội dung câu hỏi:',
+            'ja': '質問を入力してください:'
+        },
     },
-
 
 
     # xu li cac text, payload tu 2000 -> 2999
@@ -55,22 +79,12 @@ Tree =  {
     # payload = 2001, ket thuc tin nhan cua nguoi dung
     '2000': {
         'text':{
-            '01': 'Bạn có muốn tiếp tục đặt câu hỏi nữa không?',
-            '02': 'あなたは質問を続けておきたいですか'
+            'vi': 'Bạn có muốn tiếp tục đặt câu hỏi nữa không?',
+            'ja': 'あなたは質問を続けておきたいですか'
         },
-        # 'quick_reply': {
-        #     '01':[
-        #         {'title': 'Có', 'payload': '100'},
-        #         {'title': 'Không', 'payload': '2001'}
-        #     ],
-        #     '02':[
-        #         {'title': 'はい', 'payload': '100'},
-        #         {'title': 'いいえ。', 'payload': '2001'}
-        #     ]
-        # }
 
         'quick_reply': [
-            {'title': 'Yes', 'payload': '100'},
+            {'title': 'Yes', 'payload': '0'},
             {'title': 'No', 'payload': '2001'},
         ]
 
@@ -79,8 +93,8 @@ Tree =  {
     # tin nhan danh dau nguoi dung ket thuc cau hoi
     '2001': {
         'text': {
-            '01': 'Trên đây là nội dung tư vấn của iLawyer. Nếu còn vướng mắc chưa rõ cần luật sư giải đáp, bạn vui lòng gọi đến 09xxx...',
-            '02': '上記はiLawyerのアドバイスです。 それでも問題が解決しない場合は、09xxxまでご連絡ください。'
+            'vi': 'Trên đây là nội dung tư vấn của iLawyer. Nếu còn vướng mắc chưa rõ cần luật sư giải đáp, bạn vui lòng gọi đến 09xxx...',
+            'ja': '上記はiLawyerのアドバイスです。 それでも問題が解決しない場合は、09xxxまでご連絡ください。'
         }
     },
 }

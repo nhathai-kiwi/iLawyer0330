@@ -4,9 +4,7 @@ import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 import json
-import config
 from flask_jsonpify import jsonify
-import config_web as cw
 import nn_messenger as nnm
 
 def process_post_request(payload):

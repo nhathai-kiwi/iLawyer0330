@@ -5,7 +5,7 @@ Node = {
     # Node i ung voi item thu 200 + i
     '201': {
         'text': {
-            '01': 'Bạn muốn hỏi gì?\n'
+            'vi': 'Bạn muốn hỏi gì?\n'
                   '1. Các loại hình công ty\n'
                   '2. Các khái niệm cơ bản\n'
                   '3. Quyền của doanh nghiệp\n'
@@ -13,7 +13,7 @@ Node = {
                   '5. Người đại diện theo pháp luật\n'
                   '6. Thành lập doanh nghiệp\n'
                   '7. Tổ chức lại, giải thể và phá sản',
-            '02': 'あなたは何を求めていますか\n'
+            'ja': 'あなたは何を求めていますか\n'
                   '1. 企業の種類\n'
                   '2. 基本コンセプト\n'
                   '3. 事業の権利\n'
@@ -35,14 +35,14 @@ Node = {
 
     '202': {
         'text': {
-            '01': 'Các loại hình công ty?\n'
+            'vi': 'Các loại hình công ty?\n'
                   '1. Trách nhiệm hữu hạn 2 thành viên trở \n'
                   '2. Trách nhiệm hữu hạn 1 thành viên\n'
                   '3. Doanh nghiệp nhà nước\n'
                   '4. Công ty cổ phần\n'
                   '5. Công ty hợp danh\n'
                   '6. Doanh nghiệp tư nhân',
-            '02': '企業の種類?\n'
+            'ja': '企業の種類?\n'
                   '1. 2人以上のメンバーの責任限定\n'
                   '2. 1メンバー有限責任\n'
                   '3. 国有企業\n'
@@ -62,7 +62,7 @@ Node = {
 
     '203': {
         'text': {
-            '01': 'Trách nhiệm hữu hạn 2 thành viên trở lên?\n'
+            'vi': 'Trách nhiệm hữu hạn 2 thành viên trở lên?\n'
                   '1. Định nghĩa\n'
                   '2. Vốn\n'
                   '3. Quyền của thành viên\n'
@@ -70,7 +70,7 @@ Node = {
                   '5. Hội đồng thành viên\n'
                   '6. Giám đốc, Tổng giám đốc\n'
                   '7. Khác',
-            '02': '2人以上のメンバーの責任限定?\n'
+            'ja': '2人以上のメンバーの責任限定?\n'
                   '1. 定義\n'
                   '2. 首都\n'
                   '3. メンバーシップの権利\n'
@@ -92,13 +92,13 @@ Node = {
 
     '204': {
         'text': {
-            '01': 'Vốn?\n'
+            'vi': 'Vốn?\n'
                   '1. Định nghĩa\n'
                   '2. Mua lại vốn góp\n'
                   '3. Chuyển nhượng vốn góp\n'
                   '4. Thay đổi\n'
                   '5. Khác',
-            '02': '首都?\n'
+            'ja': '首都?\n'
                   '1. 定義\n'
                   '2. 資本拠出の買戻し\n'
                   '3. 寄付資本の移転\n'
@@ -116,14 +116,14 @@ Node = {
 
     '205': {
         'text': {
-            '01': 'Hội đồng thành viên?\n'
+            'vi': 'Hội đồng thành viên?\n'
                   '1. Định nghĩa\n'
                   '2. Chủ tịch\n'
                   '3. Triệu tập họp\n'
                   '4. Nghị quyết\n'
                   '5. Biên bản\n'
                   '6. Khác',
-            '02': '会員協議会?\n'
+            'ja': '会員協議会?\n'
                   '1. 定義\n'
                   '2. 大統領\n'
                   '3. 会議に出席する\n'
@@ -143,10 +143,10 @@ Node = {
 
     '206': {
         'text': {
-            '01': 'Giám đốc, Tổng giám đốc?\n'
+            'vi': 'Giám đốc, Tổng giám đốc?\n'
                   '1. Định nghĩa\n'
                   '2. Tiêu chuẩn, điều kiện',
-            '02': '取締役、総監督?\n'
+            'ja': '取締役、総監督?\n'
                   '1. 定義\n'
                   '2. 基準、条件',
         },
@@ -158,7 +158,7 @@ Node = {
 
     '207': {
         'text': {
-            '01': 'Trách nhiệm hữu hạn 1 thành viên?\n'
+            'vi': 'Trách nhiệm hữu hạn 1 thành viên?\n'
                   '1. Định nghĩa\n'
                   '2. Vốn\n'
                   '3. Quyền của chủ sở hữu\n'
@@ -167,7 +167,7 @@ Node = {
                   '6. Chủ tịch công ty\n'
                   '7. Giám đốc, Tống giám đốc\n'
                   '8. Khác',
-            '02': '1メンバー有限責任?\n'
+            'ja': '1メンバー有限責任?\n'
                   '1. 定義\n'
                   '2. 首都\n'
                   '3. オーナーの権利\n'
@@ -191,12 +191,12 @@ Node = {
 
     '208': {
         'text': {
-            '01': 'Doanh nghiệp nhà nước?\n'
+            'vi': 'Doanh nghiệp nhà nước?\n'
                   '1. Hội đồng thành viên\n'
                   '2. Chủ tịch công ty\n'
                   '3. Giám đốc, Tống giám đốc\n'
                   '4. Ban kiểm soát và kiểm soát viên',
-            '02': '国有企業?\n'
+            'ja': '国有企業?\n'
                   '1. 会員協議会\n'
                   '2. 会社の社長\n'
                   '3. トンディレクターディレクター\n'
@@ -212,7 +212,7 @@ Node = {
 
     '209': {
         'text': {
-            '01': 'Công ty cổ phần?\n'
+            'vi': 'Công ty cổ phần?\n'
                   '1. Định nghĩa\n'
                   '2. Vốn\n'
                   '3. Quyền của cổ đông phổ thông\n'
@@ -221,7 +221,7 @@ Node = {
                   '6. Đại hội đồng cổ đông\n'
                   '7. Hội đồng quản trị\n'
                   '8. Khác',
-            '02': '合資会社?\n'
+            'ja': '合資会社?\n'
                   '1. 定義\n'
                   '2. 首都\n'
                   '3. 普通株主の権利\n'
@@ -245,7 +245,7 @@ Node = {
 
     '210': {
         'text': {
-            '01': 'Hội đồng quản trị?\n'
+            'vi': 'Hội đồng quản trị?\n'
                   '1. Định nghĩa\n'
                   '2. Nhiệm kỳ và số lượng\n'
                   '3. Chủ tịch\n'
@@ -253,7 +253,7 @@ Node = {
                   '5. Giám đốc, Tống giám đốc\n'
                   '6. Ban kiểm soát\n'
                   '7. Khác',
-            '02': '取締役会?\n'
+            'ja': '取締役会?\n'
                   '1. 定義\n'
                   '2. テニュアと番号\n'
                   '3. 大統領\n'
@@ -275,14 +275,14 @@ Node = {
 
     '211': {
         'text': {
-            '01': 'Công ty hợp danh?\n'
+            'vi': 'Công ty hợp danh?\n'
                   '1. Định nghĩa\n'
                   '2. Vốn\n'
                   '3. Quyền của thành viên hợp danh\n'
                   '4. Nghĩa vụ của thành viên hợp danh\n'
                   '5. Hội đồng thành viên\n'
                   '6. Khác',
-            '02': 'パートナーシップ?\n'
+            'ja': 'パートナーシップ?\n'
                   '1. 定義\n'
                   '2. 首都\n'
                   '3. パートナーシップメンバーの権利\n'
@@ -302,9 +302,9 @@ Node = {
 
     '212': {
         'text': {
-            '01': 'Doanh nghiệp tư nhân?\n'
+            'vi': 'Doanh nghiệp tư nhân?\n'
                   '1. Khác',
-            '02': '民間企業?\n'
+            'ja': '民間企業?\n'
                   '1. その他',
         },
         'quick_reply': [
@@ -314,10 +314,9 @@ Node = {
 
     '213': {
         'text': {
-            '01': 'Thành lập doanh nghiệp?\n'
+            'vi': 'Thành lập doanh nghiệp?\n'
                   '1. Khác',
-            # TODO chuyen sang tieng Nhat
-            '02': 'ビジネスの確立?\n'
+            'ja': 'ビジネスの確立?\n'
                   '1. その他',
         },
         'quick_reply': [
@@ -327,10 +326,9 @@ Node = {
 
     '214': {
         'text': {
-            '01': 'Tổ chức lại, giải thể và phá sản?\n'
+            'vi': 'Tổ chức lại, giải thể và phá sản?\n'
                   '1. Khác',
-            # TODO chuyen sang tieng Nhat
-            '02': '再編、解散、破産?\n'
+            'ja': '再編、解散、破産?\n'
                   '1. その他',
         },
         'quick_reply': [

@@ -8,8 +8,8 @@ import tree_default as td
 import tree_101
 import tree_102
 import tree_103
+from server import page
 from flask_jsonpify import jsonify
-from facebook_page import page
 import nn_messenger as nnm
 default_tree = 'tree_%s'
 
@@ -113,6 +113,7 @@ def handle_message(event):
 
             else:
                 # hoi nguoi dung lua chon ngon ngu
+                print "Here add ngon ngu"
                 page.send(sender_id, td.Tree['0']['text'], td.Tree['0']['quick_reply'])
                 all_message_user_id[sender_id]['last_payload'] = -1
 
@@ -126,7 +127,7 @@ def handle_message(event):
             type_law = all_message_user_id[sender_id]['type_law']
             model = type_law + '.pkl'
             law_xlsx = type_law + '.xlsx'
-            answer_array = nnm.get_answer_from_text(message_text, model, law_xlsx, type_law)
+            answer_array = nnm.get_answer_from_text(message_text, type_law)
             for answer in answer_array:
                 page.send(sender_id, answer)
 

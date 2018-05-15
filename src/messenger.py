@@ -4,16 +4,11 @@ parentdir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.sys.path.insert(0,parentdir)
 
 import openpyxl
-from config import CONFIG
-import config
 from fbmq import Attachment, Template, QuickReply, NotificationType
-from facebook_page import page
-import nn_messenger as nnm
-import messenger_version as mv
-import handle_event_messenger as hem
+from server import page
+import iLawyer_messenger as imes
 
 USER_SEQ = {}
-
 
 @page.handle_optin
 def received_authentication(event):
@@ -39,20 +34,9 @@ def received_echo(event):
     print("Received echo for message %s and app %s with metadata %s" % (message_id, app_id, metadata))
 
 
-
 @page.handle_message
 def received_message(event):
-    # co 3 phuong thuc tra cau hoi cua nguoi dung: handle_message_v01(event) && hanle_message_v02(event)
-    # handle_message_v01: su dung decesion tree
-    # handle_message_v02: su dung classification
-    # handle_messsage_v03: su dung decesion tree + classification
-    # he thong can cho phep chuyen doi giua 3 phuong thuc
-
-    # mv.handle_message_v07(event)
-    hem.handle_message(event)
-    # print "Dictionary size: ", len(dict_message)
-    # for key, value in dict_message.iteritems():
-    #     print (key, value)
+    imes.handle_message(event)
 
 
 @page.handle_delivery

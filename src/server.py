@@ -1,21 +1,31 @@
-# coding: utf-8
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
+"""iLawyer server"""
 import os
 import sys
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-parentdir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-os.sys.path.insert(0,parentdir)
 
-from flask import Flask, request, send_from_directory, render_template
-from fbmq import Event, QuickReply
-from config import CONFIG
-from facebook_page import page
-import messenger
-import process_request as pr
+CONFIG = {
+    'FACEBOOK_TOKEN': 'EAAGHCApnutgBAPSI0DYFXxRu1nn7GEOfz9f3mstNpCpo2HNBxpyFYkCrz3QrCYjZAggpLXtkouVfmRcTUAAp6LaQJ5RVgxFcqV93WmSRDuqlrGGccnNJ5oqu4368aiSCdHiuSjYzMDVaph5Af00UaPoOyWZBv53y3xTMWIsmy3S4xleXUZB',
+    'VERIFY_TOKEN': 'kiwi_token',
+    'SERVER_URL': '',
+    'Tokenkey': 'kiwi_token'
+}
 
-import json
+from flask import Flask, request, send_from_directory
+from fbmq import Page
 app = Flask(__name__)
+import messenger
+
+
+page = Page(CONFIG['FACEBOOK_TOKEN'])
+@page.after_send
+def after_send(payload, response):
+    print('AFTER_SEND : ' + payload.to_json())
+    print('RESPONSE : ' + response.text)
 
 
 @app.route('/', methods=['GET'])
@@ -75,4 +85,5 @@ def assets(path):
 
 if __name__ == '__main__':
     app.run(port=5000, debug=True, threaded=True)
+
 # chcp 65001
