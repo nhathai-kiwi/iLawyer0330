@@ -1,0 +1,11 @@
+
+# tin nhan dau tien chua (id nguoi dung, noi dung tin nhan)
+{
+    "user_id" : "123123",
+    "message" : "Xin chao",
+    "lang" : "",
+    "type_law" : "",
+    "cur_node" : -1
+}
+
+ngrok

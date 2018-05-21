@@ -322,7 +322,7 @@ def check_string_array_has_profanity(string_array, profanity_txt):
 
 def get_article(type_law, num_article, lang):
     """lay dieu luat num_artilce trong file inp_xlsx o cot 2 cua file .xlsx"""
-    law_xlsx = type_law + '.xlsx'
+    law_xlsx = str(type_law) + '.xlsx'
     answer = get_article_from_prediction(law_xlsx, num_article, id_column=2)
     # answer = trans_string_into_other_lang(answer, lang)
     array_answer = []
@@ -334,6 +334,20 @@ def get_article(type_law, num_article, lang):
         array_answer.append(value)
     return array_answer
 # DONE
+
+
+# tra ve payload tuong ung voi title = message trong quick_reply_array
+# neu ko ton tai title = message thi gia tri tra ve = -1
+def get_payload_from_text(message, quick_reply_array):
+    message = message.lower()
+    for dict in quick_reply_array:
+        title = dict['title'].lower()
+        pay_load = dict['payload']
+        if message == title:
+            return pay_load
+    return -1
+
+
 
 
 

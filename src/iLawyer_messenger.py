@@ -4,23 +4,11 @@
 """ILawyer messenger handle"""
 
 import iLawyer_basic as ib
-from server import page
+from fbpage import page
 from sklearn.externals import joblib
 import iLawyer_lib as il
 USER_SEQ = {}
 user_history = {}
-
-# tra ve payload tuong ung voi title = message trong quick_reply_array
-# neu ko ton tai title = message thi gia tri tra ve = -1
-def get_payload_from_text(message, quick_reply_array):
-    message = message.lower()
-    for dict in quick_reply_array:
-        title = dict['title'].lower()
-        pay_load = dict['payload']
-        if message == title:
-            return pay_load
-    return -1
-
 
 def send_node_message(sender_id, type_law, lang, node_num):
     print "Send node message: ", type_law, " ", lang, " ", node_num
@@ -94,7 +82,7 @@ def handle_message(event):
 
         if cur_node == 0:
             # luu lai lua chon ngon ngu cua nguoi dung
-            payload = get_payload_from_text(message_text, ib.LAW_TREE[0]['0']['quick_reply'])
+            payload = ib.get_payload_from_text(message_text, ib.LAW_TREE[0]['0']['quick_reply'])
             print "Palyload ngon ngu: ", payload
             # set language cua nguoi dung
             if message_text == 'vietnamese':
@@ -106,7 +94,7 @@ def handle_message(event):
             # luu lai lua chon luat cua nguoi dung
             print "Chon loai luat"
 
-            payload = get_payload_from_text(message_text, ib.LAW_TREE[0]['100']['quick_reply'])
+            payload = ib.get_payload_from_text(message_text, ib.LAW_TREE[0]['100']['quick_reply'])
 
             # nguoi dung nhap dung title
             if payload != -1:
@@ -132,9 +120,9 @@ def handle_message(event):
             type_law = user_history[sender_id]['type_law']
             type_law = int(type_law)
             if cur_node >= 200 and cur_node < 1000:
-                payload = get_payload_from_text(message_text, ib.LAW_TREE[type_law - 100][str(cur_node)]['quick_reply'])
+                payload = ib.get_payload_from_text(message_text, ib.LAW_TREE[type_law - 100][str(cur_node)]['quick_reply'])
             else:
-                payload = get_payload_from_text(message_text, ib.LAW_TREE[0][str(cur_node)]['quick_reply'])
+                payload = ib.get_payload_from_text(message_text, ib.LAW_TREE[0][str(cur_node)]['quick_reply'])
 
 
 
@@ -170,6 +158,7 @@ def handle_message(event):
             if lang:
                 # nguoi dung da chon duoc ngon ngu
                 page.send(sender_id, ib.LAW_TREE[0]['invalid_quick_reply']['text'][lang])
+                
             send_node_message(sender_id, type_law, lang, cur_node)
 
         else:

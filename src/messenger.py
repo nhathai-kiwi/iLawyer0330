@@ -5,7 +5,7 @@ os.sys.path.insert(0,parentdir)
 
 import openpyxl
 from fbmq import Attachment, Template, QuickReply, NotificationType
-from server import page
+from fbpage import page
 import iLawyer_messenger as imes
 
 USER_SEQ = {}
