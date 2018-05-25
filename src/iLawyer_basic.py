@@ -147,7 +147,7 @@ def print_txt_from_string(string_value, out_txt):
 
 def process_vncore(inp_txt, out_txt):
     """Word segmentation from file: inp_txt, output file: out_txt"""
-    cmd = "java RDRsegmenter " + inp_txt + " " + out_txt
+    cmd = "/usr/bin/java RDRsegmenter " + inp_txt + " " + out_txt
     os.system(cmd)
     return 0
 # DONE
