@@ -126,7 +126,7 @@ def get_answer_from_text(text, type_law, lang, type_text):
             X_question.append(x_question)
             y_question = isk.gen_prediction(clf, X_question)
             id_column = type_text + 1
-            array_answer = ib.get_article(type_law, y_question[0], lang, id_column=id_column ) 
+            array_answer = ib.get_article(type_law, y_question[0], lang, id_column=id_column)
 
         else:
             array_answer.append(ib.LAW_TREE[0]['miss_key_ans']['text'][lang])

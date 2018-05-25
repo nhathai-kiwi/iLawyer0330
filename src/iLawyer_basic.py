@@ -321,7 +321,10 @@ def check_string_array_has_profanity(string_array, profanity_txt):
 
 
 def get_article(type_law, num_article, lang, id_column):
-    """lay dieu luat num_artilce trong file inp_xlsx o cot 2 cua file .xlsx"""
+    """lay dieu luat num_artilce trong file inp_xlsx o cot id_column cua file .xlsx
+        cot id_column = 2 tuong ung vs du lieu in ra tren facebook
+        cot id_column = 3 tuong ung vs du lieu in ra tren web
+    """
     law_xlsx = str(type_law) + '.xlsx'
     answer = get_article_from_prediction(law_xlsx, num_article, id_column=id_column)
     # answer = trans_string_into_other_lang(answer, lang)
@@ -329,9 +332,12 @@ def get_article(type_law, num_article, lang, id_column):
     len_answer = len(answer)
     # do gioi han moi tin nhan tren messenger là 2000 ki tu
     # do vay tach dieu luat thanh mot array, moi phan tu cua array la mot string co do dai 1500 ki tu
-    for i in range(0, (len_answer + 1499) / 1500):
-        value = answer[(i * 1500): ((i + 1) * 1500)]
-        array_answer.append(value)
+    if id_column == 2:
+        for i in range(0, (len_answer + 1499) / 1500):
+            value = answer[(i * 1500): ((i + 1) * 1500)]
+            array_answer.append(value)
+    else:
+        array_answer.append(answer)
     return array_answer
 # DONE
 
