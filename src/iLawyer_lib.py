@@ -100,12 +100,12 @@ def print_dict_into_xlsx_and_txt(inp_xlsx, dict_num_rows, id_column_question, ou
 # DONE
 
 
-def get_answer_from_text(text, type_law, lang):
-
+def get_answer_from_text(text, type_law, lang, type_text):
+    # type_text: o day co 2 dang, 1 ung voi text, 2 ung voi HTML
     model = type_law + '.pkl'
     clf = joblib.load(model)
     law_xlsx = type_law + '.xlsx'
-    # lay ra thong tin 2 loai tu dien cua loai luat type_law
+    # lay ra thong tin 2 loai tu dien cua loai luat type_lacolumn
     normal_dict_txt = ib.get_path_file_name(type_law, 'standard_dict.txt')
     law_dict_txt = ib.get_path_file_name(type_law, 'basic_dict.txt')
 
@@ -125,7 +125,8 @@ def get_answer_from_text(text, type_law, lang):
             X_question = []
             X_question.append(x_question)
             y_question = isk.gen_prediction(clf, X_question)
-            array_answer = ib.get_article(type_law, y_question[0], lang)
+            id_column = type_text + 1
+            array_answer = ib.get_article(type_law, y_question[0], lang, id_column=id_column ) 
 
         else:
             array_answer.append(ib.LAW_TREE[0]['miss_key_ans']['text'][lang])

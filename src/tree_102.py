@@ -94,12 +94,12 @@ Node = {
                   '1. Quốc phòng, an ninh\n'
                   '2. Lợi ích công cộng\n'
                   '3. Vi phạm pháp luật về đất đai\n'
-                  '4. Khác\n',
+                  '4. Đưa ra câu hỏi\n',
             'ja': 'リコールのケース?\n'
                   '1. 防衛と安全\n'
                   '2. 公益\n'
                   '3. 土地法を破る\n'
-                  '4. その他\n',
+                  '4. 質問する\n',
         },
         'quick_reply': [
             {'title': '1', 'payload': '10061'},
@@ -253,9 +253,9 @@ Node = {
     '212': {
         'text': {
             'vi': 'Hỗ trợ ngoài bồi thường về tài sản?\n'
-                  '1. Khác',
+                  '1. Đưa ra câu hỏi',
             'ja': '財産補償に加えて支援?\n'
-                  '1. その他',
+                  '1. 質問する',
         },
         'quick_reply': [
             {'title': '1', 'payload': '1000'},

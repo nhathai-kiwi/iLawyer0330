@@ -90,7 +90,9 @@ def handle_post_request(payload):
             # lay cau hoi cua nguoi dung va dua ra cau tra loi
             # print "Cau hoi cua nguoi dung: ", message_text
             # page.send(sender_id, "Cau hoi nguoi dung: " + message_text)
-            answer_array = il.get_answer_from_text(message, type_law, lang)
+            # type_text = 1 tuong ung voi dang text tra ve la text
+            # type_text = 2 tuong ung voi dang text tra ve la HTML
+            answer_array = il.get_answer_from_text(message, type_law, lang, type_text=2)
             message_ret['message'] = answer_array
 
             payload = 2000
@@ -114,8 +116,8 @@ def handle_post_request(payload):
             # dua ra dieu luat cho nguoi dung
             # page.send(sender_id, "Cau tra loi day.")
             article_num = payload - 10000
-
-            answer_array = ib.get_article(type_law, article_num, lang)
+            # id_column = 2 voi Text, id_column = 3 vs HTML
+            answer_array = ib.get_article(type_law, article_num, lang, id_column=3)
             message_ret['message'] = answer_array
 
             payload = 2000

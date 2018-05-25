@@ -320,10 +320,10 @@ def check_string_array_has_profanity(string_array, profanity_txt):
 
 
 
-def get_article(type_law, num_article, lang):
+def get_article(type_law, num_article, lang, id_column):
     """lay dieu luat num_artilce trong file inp_xlsx o cot 2 cua file .xlsx"""
     law_xlsx = str(type_law) + '.xlsx'
-    answer = get_article_from_prediction(law_xlsx, num_article, id_column=2)
+    answer = get_article_from_prediction(law_xlsx, num_article, id_column=id_column)
     # answer = trans_string_into_other_lang(answer, lang)
     array_answer = []
     len_answer = len(answer)

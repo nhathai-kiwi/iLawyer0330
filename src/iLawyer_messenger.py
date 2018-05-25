@@ -51,7 +51,7 @@ def handle_message(event):
     metadata = message.get("metadata")
 
     message_text = message.get("text")
-    message_text = message_text.lower()
+    message_text = str(message_text).lower()
 
     message_attachments = message.get("attachments")
 
@@ -109,7 +109,9 @@ def handle_message(event):
             type_law = user_history[sender_id]['type_law']
 
             # page.send(sender_id, "Cau hoi nguoi dung: " + message_text)
-            answer_array = il.get_answer_from_text(message_text, type_law, lang)
+            # type_text = 1 tuong ung voi dang text tra ve la text
+            # type_text = 2 tuong ung voi dang text tra ve la HTML
+            answer_array = il.get_answer_from_text(message_text, type_law, lang, type_text= 1)
             for answer in answer_array:
                 page.send(sender_id, answer)
 
@@ -123,8 +125,6 @@ def handle_message(event):
                 payload = ib.get_payload_from_text(message_text, ib.LAW_TREE[type_law - 100][str(cur_node)]['quick_reply'])
             else:
                 payload = ib.get_payload_from_text(message_text, ib.LAW_TREE[0][str(cur_node)]['quick_reply'])
-
-
 
         # get lang, type_law from user_history
         lang = ''
@@ -143,8 +143,8 @@ def handle_message(event):
             # dua ra dieu luat cho nguoi dung
             # page.send(sender_id, "Cau tra loi day.")
             article_num = payload - 10000
-
-            answer_array = ib.get_article(type_law, article_num, lang)
+            # id_column = 2 voi Text, id_column = 3 vs HTML
+            answer_array = ib.get_article(type_law, article_num, lang, id_column=2)
             print "Cau tra loi day: ", type_law, " ", article_num, " ", lang
             for answer in answer_array:
 

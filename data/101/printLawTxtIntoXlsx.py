@@ -12,8 +12,8 @@ import codecs
 from openpyxl import Workbook
 
 
-law_txt = '103.txt'
-law_xlsx = '103.xlsx'
+law_txt = '101.txt'
+law_xlsx = '101.xlsx'
 # law_xlsx = 'property_tax_law.xlsx'
 
 # only apply for LawInEnterprise.txt

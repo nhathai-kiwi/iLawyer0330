@@ -10,14 +10,14 @@ Node = {
                   '3. Thuế tài sản cho đất\n'
                   '4. Thuế tài sản cho nhà ở\n'
                   '5. Thuế tài sản cho tàu bay, du thuyền, ô tô\n'
-                  '6. Khác',
+                  '6. Đưa ra câu hỏi',
             'ja': 'あなたは何を求めていますか\n'
                   '1. 一般規定\n'
                   '2. 納税活動\n'
                   '3. 土地の固定資産税\n'
                   '4. 住宅の固定資産税\n'
                   '5. 航空機、ヨット、車の固定資産税\n'
-                  '6. その他',
+                  '6. 質問する',
         },
         'quick_reply': [
             {'title': '1', 'payload': '202'},
@@ -37,14 +37,14 @@ Node = {
                   '3. Người nộp thuế\n'
                   '4. Giá tính thuế\n'
                   '5. Thuế suất\n'
-                  '6. Khác',
+                  '6. Đưa ra câu hỏi',
             'ja': '一般規定?\n'
                   '1. 課税対象\n'
                   '2. 非課税対象\n'
                   '3. 納税者\n'
                   '4. 課税価格\n'
                   '5. 税率\n'
-                  '6. その他',
+                  '6. 質問する',
         },
         'quick_reply': [
             {'title': '1', 'payload': '10002'},
@@ -64,14 +64,14 @@ Node = {
                   '3. Đăng ký và tính thuế\n'
                   '4. Nộp thuế\n'
                   '5. Chậm nộp thuế\n'
-                  '6. Khác',
+                  '6. Đưa ra câu hỏi',
             'ja': '納税活動?\n'
                   '1. 免税の場合\n'
                   '2. 減税の場合\n'
                   '3. 登録と税計算\n'
                   '4. 税金を支払う\n'
                   '5. 税金の滞納\n'
-                  '6. その他',
+                  '6. 質問する',
         },
         'quick_reply': [
             {'title': '1', 'payload': '10010'},
@@ -88,11 +88,11 @@ Node = {
             'vi': 'Thuế tài sản cho đất?\n'
                   '1. Giá tính thuế\n'
                   '2. Thuế suất\n'
-                  '3. Khác',
+                  '3. Đưa ra câu hỏi',
             'ja': '土地の固定資産税?\n'
                   '1. 課税価格\n'
                   '2. 税率\n'
-                  '3. その他',
+                  '3. 質問する',
         },
         'quick_reply': [
             {'title': '1', 'payload': '10007'},
@@ -106,11 +106,11 @@ Node = {
             'vi': 'Thuế tài sản cho nhà ở?\n'
                   '1. Giá tính thuế\n'
                   '2. Thuế suất\n'
-                  '3. Khác',
+                  '3. Đưa ra câu hỏi',
             'ja': '住宅の固定資産税?\n'
                   '1. 課税価格\n'
                   '2. 税率\n'
-                  '3. その他',
+                  '3. 質問する',
         },
         'quick_reply': [
             {'title': '1', 'payload': '10007'},
@@ -124,11 +124,11 @@ Node = {
             'vi': 'Thuế tài sản cho tàu bay, thuyền, ô tô?\n'
                   '1. Giá tính thuế\n'
                   '2. Thuế suất\n'
-                  '3. Khác',
+                  '3. Đưa ra câu hỏi',
             'ja': '航空機、ボート、自動車の固定資産税?\n'
                   '1. 課税価格\n'
                   '2. 税率\n'
-                  '3. その他',
+                  '3. 質問する',
         },
         'quick_reply': [
             {'title': '1', 'payload': '10007'},

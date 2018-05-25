@@ -69,7 +69,7 @@ Node = {
                   '4. Nghĩa vụ của thành viên\n'
                   '5. Hội đồng thành viên\n'
                   '6. Giám đốc, Tổng giám đốc\n'
-                  '7. Khác',
+                  '7. Đưa ra câu hỏi',
             'ja': '2人以上のメンバーの責任限定?\n'
                   '1. 定義\n'
                   '2. 首都\n'
@@ -77,7 +77,7 @@ Node = {
                   '4. 会員義務\n'
                   '5. 会員協議会n\n'
                   '6. 取締役、総監督\n'
-                  '7. その他'
+                  '7. 質問する'
         },
         'quick_reply': [
             {'title': '1', 'payload': '10047'},
@@ -97,13 +97,13 @@ Node = {
                   '2. Mua lại vốn góp\n'
                   '3. Chuyển nhượng vốn góp\n'
                   '4. Thay đổi\n'
-                  '5. Khác',
+                  '5. Đưa ra câu hỏi',
             'ja': '首都?\n'
                   '1. 定義\n'
                   '2. 資本拠出の買戻し\n'
                   '3. 寄付資本の移転\n'
                   '4. 変更\n'
-                  '5. その他',
+                  '5. 質問する',
         },
         'quick_reply': [
             {'title': '1', 'payload': '10048'},
@@ -122,14 +122,14 @@ Node = {
                   '3. Triệu tập họp\n'
                   '4. Nghị quyết\n'
                   '5. Biên bản\n'
-                  '6. Khác',
+                  '6. Đưa ra câu hỏi',
             'ja': '会員協議会?\n'
                   '1. 定義\n'
                   '2. 大統領\n'
                   '3. 会議に出席する\n'
                   '4. 解像度\n'
                   '5. 分\n'
-                  '6. その他',
+                  '6. 質問する',
         },
         'quick_reply': [
             {'title': '1', 'payload': '10056'},
@@ -220,7 +220,7 @@ Node = {
                   '5. Chuyển nhượng cổ phần\n'
                   '6. Đại hội đồng cổ đông\n'
                   '7. Hội đồng quản trị\n'
-                  '8. Khác',
+                  '8. Đưa ra câu hỏi',
             'ja': '合資会社?\n'
                   '1. 定義\n'
                   '2. 首都\n'
@@ -229,7 +229,7 @@ Node = {
                   '5. 株式移転\n'
                   '6. 株主総会\n'
                   '7. 取締役会\n'
-                  '8. その他',
+                  '8. 質問する',
         },
         'quick_reply': [
             {'title': '1', 'payload': '10110'},
@@ -252,7 +252,7 @@ Node = {
                   '4. Cuộc họp hội đồng quản trị\n'
                   '5. Giám đốc, Tống giám đốc\n'
                   '6. Ban kiểm soát\n'
-                  '7. Khác',
+                  '7. Đưa ra câu hỏi',
             'ja': '取締役会?\n'
                   '1. 定義\n'
                   '2. テニュアと番号\n'
@@ -260,7 +260,7 @@ Node = {
                   '4. 取締役会\n'
                   '5. トンディレクターディレクター\n'
                   '6. コントロールボード\n'
-                  '7. その他',
+                  '7. 質問する',
         },
         'quick_reply': [
             {'title': '1', 'payload': '10149'},
@@ -281,14 +281,14 @@ Node = {
                   '3. Quyền của thành viên hợp danh\n'
                   '4. Nghĩa vụ của thành viên hợp danh\n'
                   '5. Hội đồng thành viên\n'
-                  '6. Khác',
+                  '6. Đưa ra câu hỏi',
             'ja': 'パートナーシップ?\n'
                   '1. 定義\n'
                   '2. 首都\n'
                   '3. パートナーシップメンバーの権利\n'
                   '4. パートナーシップ会員の義務\n'
                   '5. 会員協議会\n'
-                  '6. その他',
+                  '6. 質問する',
         },
         'quick_reply': [
             {'title': '1', 'payload': '10172'},
@@ -303,9 +303,9 @@ Node = {
     '212': {
         'text': {
             'vi': 'Doanh nghiệp tư nhân?\n'
-                  '1. Khác',
+                  '1. Đưa ra câu hỏi',
             'ja': '民間企業?\n'
-                  '1. その他',
+                  '1. 質問する',
         },
         'quick_reply': [
             {'title': '1', 'payload': '1000'},
@@ -315,9 +315,9 @@ Node = {
     '213': {
         'text': {
             'vi': 'Thành lập doanh nghiệp?\n'
-                  '1. Khác',
+                  '1. Đưa ra câu hỏi',
             'ja': 'ビジネスの確立?\n'
-                  '1. その他',
+                  '1. 質問する',
         },
         'quick_reply': [
             {'title': '1', 'payload': '1000'},
@@ -327,9 +327,9 @@ Node = {
     '214': {
         'text': {
             'vi': 'Tổ chức lại, giải thể và phá sản?\n'
-                  '1. Khác',
+                  '1. Đưa ra câu hỏi',
             'ja': '再編、解散、破産?\n'
-                  '1. その他',
+                  '1. 質問する',
         },
         'quick_reply': [
             {'title': '1', 'payload': '1000'},
